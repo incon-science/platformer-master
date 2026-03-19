@@ -102,7 +102,10 @@ var _on_wall: bool = false: # This variable mustn't be edited manually
 func _physics_process(_delta: float) -> void:
 	_on_wall = is_on_wall()
 	
-	logic_spe()
+	if !Global.pause_player:
+		logic_spe()
+	else :
+		sprite.stop()
 
 func get_facing_dir() -> float:
 	return -1.0 if flip_h else 1.0

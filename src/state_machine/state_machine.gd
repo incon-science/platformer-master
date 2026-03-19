@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 		active_state._update(delta)
 
 func _physics_process(delta: float) -> void:
-	if should_update():
+	if should_update() and !Global.pause_player:
 		active_state._physics_update(delta)
 
 func add_child_states(node: Node) -> void:

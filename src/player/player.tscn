@@ -774,7 +774,7 @@ scale = Vector2(0.55, 0.55)
 sprite_frames = SubResource("SpriteFrames_j2873")
 animation = &"sliding_gemini"
 autoplay = "idle"
-frame_progress = 0.6022423
+frame_progress = 0.28278023
 script = ExtResource("14_5efpn")
 
 [node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=703265265]
