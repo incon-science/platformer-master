@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dayo7lbiwbhw3" path="res://src/elements/tas_de_cadavre.tscn" id="7_j2cwt"]
 [ext_resource type="PackedScene" uid="uid://do35bbyy0qllr" path="res://src/platforms/platform.tscn" id="8_ltygr"]
 [ext_resource type="PackedScene" uid="uid://bl14lcvp4g2nh" path="res://src/levels/room_1.tscn" id="9_7157o"]
+[ext_resource type="PackedScene" uid="uid://bt0bmj5dihnpp" path="res://src/vivants/monster.tscn" id="10_41y7b"]
 [ext_resource type="Texture2D" uid="uid://iyg0q8tiaeyv" path="res://sprites/lol rndr.png" id="11_tpyur"]
 [ext_resource type="PackedScene" uid="uid://c07ghb70rt8ft" path="res://src/levels/escalier_room.tscn" id="12_7ls7j"]
 [ext_resource type="PackedScene" uid="uid://dhihe4rrnqw3d" path="res://src/levels/transition_rooms.tscn" id="13_h1car"]
@@ -179,11 +180,17 @@ _data = {
 &"true_anim_multicolor": SubResource("Animation_01erx")
 }
 
-[sub_resource type="Gradient" id="Gradient_p7rqh"]
+[sub_resource type="Gradient" id="Gradient_41y7b"]
+colors = PackedColorArray(0.25, 0.25, 0.25, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f4kdv"]
+gradient = SubResource("Gradient_41y7b")
+
+[sub_resource type="Gradient" id="Gradient_f4kdv"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qrlky"]
-gradient = SubResource("Gradient_p7rqh")
+gradient = SubResource("Gradient_f4kdv")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
@@ -194,14 +201,14 @@ offsets = PackedFloat32Array(0, 0.3, 0.7, 0.9)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
 metadata/_snap_enabled = true
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_28ilu"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q5tgx"]
 gradient = SubResource("Gradient_01erx")
 
 [sub_resource type="Curve" id="Curve_tpyur"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1590909, 1), 0.0, 0.0, 0, 0, Vector2(0.8484848, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_t0qxu"]
+[sub_resource type="CurveTexture" id="CurveTexture_wxahx"]
 curve = SubResource("Curve_tpyur")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41y7b"]
@@ -215,8 +222,8 @@ initial_velocity_max = 8.0
 gravity = Vector3(-1, -20, 0)
 scale_min = 0.01
 scale_max = 0.099999994
-scale_curve = SubResource("CurveTexture_t0qxu")
-color_ramp = SubResource("GradientTexture1D_28ilu")
+scale_curve = SubResource("CurveTexture_wxahx")
+color_ramp = SubResource("GradientTexture1D_q5tgx")
 
 [sub_resource type="Gradient" id="Gradient_qrlky"]
 interpolation_mode = 2
@@ -494,21 +501,32 @@ process_physics_priority = 300
 script = ExtResource("6_ltygr")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="jail" type="Node2D" parent="." unique_id=1554215756]
+[node name="lvl4" type="Node2D" parent="." unique_id=1554215756]
 
-[node name="ColorRect" type="ColorRect" parent="jail" unique_id=1528768766]
+[node name="ColorRect" type="ColorRect" parent="lvl4" unique_id=1528768766]
 offset_left = 14060.0
 offset_top = 357.0
 offset_right = 36007.0
 offset_bottom = 13895.0
 color = Color(0, 0, 0, 1)
 
-[node name="3platformblueprint" parent="jail" unique_id=705479190 instance=ExtResource("32_f3u0r")]
-position = Vector2(16390, 2174)
+[node name="monster" parent="lvl4" unique_id=1259109965 instance=ExtResource("10_41y7b")]
+position = Vector2(18072, 2141)
 
-[node name="Sprite2D" type="Sprite2D" parent="jail" unique_id=1233527066]
-position = Vector2(16636.002, 1901)
-scale = Vector2(0.57211536, 0.57211536)
+[node name="3platformblueprint" parent="lvl4" unique_id=705479190 instance=ExtResource("32_f3u0r")]
+position = Vector2(16446, 2218.0002)
+rotation = 0.16580628
+
+[node name="3platformblueprint2" parent="lvl4" unique_id=853668133 instance=ExtResource("32_f3u0r")]
+position = Vector2(17168, 2208)
+
+[node name="3platformblueprint3" parent="lvl4" unique_id=991814562 instance=ExtResource("32_f3u0r")]
+position = Vector2(18014, 2446)
+
+[node name="Sprite2D" type="Sprite2D" parent="lvl4" unique_id=1233527066]
+visible = false
+position = Vector2(18084, 2096)
+scale = Vector2(0.27223545, 0.27223545)
 texture = ExtResource("11_tpyur")
 
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
@@ -541,25 +559,22 @@ texture = SubResource("GradientTexture1D_7rpky")
 
 [node name="animparalaxburn" type="AnimationPlayer" parent="lvl1/Parallax2D/burningBG" unique_id=1781422004]
 libraries/ = SubResource("AnimationLibrary_hw218")
-autoplay = &"true_anim_multicolor"
+autoplay = &"new_animation"
 speed_scale = 0.1
 
-[node name="Parallax2D3" type="Parallax2D" parent="lvl1" unique_id=1010859372]
-scroll_scale = Vector2(0.9, 1)
-scroll_offset = Vector2(20960, 0)
-
-[node name="burningBG" type="TextureRect" parent="lvl1/Parallax2D3" unique_id=1447797205]
-material = SubResource("ShaderMaterial_hw218")
-offset_left = -8300.0
-offset_top = -4206.0
-offset_right = 8084.0
+[node name="right-gradient" type="TextureRect" parent="lvl1" unique_id=650280801]
+offset_left = 12286.0
+offset_top = -6138.0
+offset_right = 12660.0
 offset_bottom = 35.0
-texture = SubResource("GradientTexture1D_7rpky")
+texture = SubResource("GradientTexture2D_f4kdv")
 
-[node name="animparalaxburn" type="AnimationPlayer" parent="lvl1/Parallax2D3/burningBG" unique_id=682738422]
-libraries/ = SubResource("AnimationLibrary_hw218")
-autoplay = &"true_anim_multicolor"
-speed_scale = 0.1
+[node name="ColorRect" type="ColorRect" parent="lvl1/right-gradient" unique_id=2028401922]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 181.0
+offset_right = 24025.0
+offset_bottom = 6173.0
 
 [node name="colors_bg" type="Node2D" parent="lvl1" unique_id=1620225080]
 
@@ -627,6 +642,16 @@ shape = SubResource("RectangleShape2D_76snk")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=1357711770]
 z_index = 1
 position = Vector2(20218.713, 230.90402)
+shape = SubResource("RectangleShape2D_76snk")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=609793436]
+z_index = 1
+position = Vector2(26852.713, 230.90402)
+shape = SubResource("RectangleShape2D_76snk")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=1605343899]
+z_index = 1
+position = Vector2(33529.71, 230.90402)
 shape = SubResource("RectangleShape2D_76snk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=587111306]
@@ -1461,7 +1486,7 @@ position = Vector2(4592, 3977)
 [node name="pt_blueprint9" parent="lvl3" unique_id=639221890 instance=ExtResource("16_nfd4m")]
 position = Vector2(4521, 3977)
 
-[node name="3platformblueprint2" parent="lvl3" unique_id=853668133 instance=ExtResource("32_f3u0r")]
+[node name="3platformblueprint2" parent="lvl3" unique_id=1379273589 instance=ExtResource("32_f3u0r")]
 position = Vector2(2012, 3925)
 
 [node name="3platformblueprint3" parent="lvl3" unique_id=1580980550 instance=ExtResource("32_f3u0r")]
