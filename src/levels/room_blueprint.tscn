@@ -512,7 +512,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="ColorRect" type="ColorRect" parent="lvl4" unique_id=1528768766]
 offset_left = 14060.0
-offset_top = 357.0
+offset_top = 342.0
 offset_right = 36007.0
 offset_bottom = 13895.0
 color = Color(0, 0, 0, 1)
@@ -694,6 +694,13 @@ color = Color(0.3019608, 0.3019608, 0.3019608, 1)
 offset_left = -3523.0
 offset_top = 36.0
 offset_right = 14469.592
+offset_bottom = 342.0
+color = Color(0.35531357, 0.35531357, 0.3553135, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="lvl1/colors_bg" unique_id=1392230140]
+offset_left = 14307.0
+offset_top = 36.0
+offset_right = 32299.592
 offset_bottom = 342.0
 color = Color(0.35531357, 0.35531357, 0.3553135, 1)
 

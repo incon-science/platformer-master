@@ -1,7 +1,7 @@
 extends Node
 
 var nb_fractal:int = 0
-var door_opened:bool = true
+var door_opened:bool = false
 var pause_player:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
