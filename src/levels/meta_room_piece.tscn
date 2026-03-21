@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bx05u75a6jdq8" path="res://src/levels/meta_room_piece.gd" id="1_u6kd6"]
 [ext_resource type="Shader" uid="uid://r5ttx5k57uqv" path="res://shaders/laser.gdshader" id="2_m2xyl"]
 [ext_resource type="PackedScene" uid="uid://ca0qqvc5pjlky" path="res://src/elements/button.tscn" id="3_pgh4i"]
-[ext_resource type="PackedScene" uid="uid://cuuupedh70x4h" path="res://src/elements/temps.tscn" id="4_g1hwu"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_vf124"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_anba5"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="8_lory2"]
@@ -55,6 +54,7 @@ size = Vector2(1910, 1998)
 size = Vector2(609.5, 501)
 
 [node name="meta_room_piece" type="Node2D" unique_id=1053535631]
+position = Vector2(0, -1)
 script = ExtResource("1_u6kd6")
 
 [node name="room_piece" parent="." unique_id=1832363316 instance=ExtResource("1_pvq73")]
@@ -71,113 +71,53 @@ position = Vector2(1999, 2000)
 [node name="room_piece5" parent="." unique_id=1617287924 instance=ExtResource("1_pvq73")]
 position = Vector2(3998, 0)
 
-[node name="CollisionShape2D" parent="room_piece5/StaticBody2D" parent_id_path=PackedInt32Array(1617287924, 99470810) index="0" unique_id=1064762727]
-position = Vector2(-1916, -1173)
-
-[node name="CollisionShape2D2" parent="room_piece5/StaticBody2D" parent_id_path=PackedInt32Array(1617287924, 99470810) index="1" unique_id=1982690336]
-position = Vector2(-2019, -1204)
-
-[node name="CollisionShape2D4" parent="room_piece5/StaticBody2D" parent_id_path=PackedInt32Array(1617287924, 99470810) index="3" unique_id=326285369]
-position = Vector2(-2633, -1213)
-
-[node name="CollisionShape2D" parent="room_piece5/StaticBody2D2" parent_id_path=PackedInt32Array(1617287924, 122980264) index="0" unique_id=2124233037]
-position = Vector2(-3145, -1289)
-
-[node name="CollisionShape2D2" parent="room_piece5/StaticBody2D2" parent_id_path=PackedInt32Array(1617287924, 122980264) index="1" unique_id=1928957852]
-position = Vector2(-2979, -1112)
-
-[node name="CollisionShape2D3" parent="room_piece5/StaticBody2D2" parent_id_path=PackedInt32Array(1617287924, 122980264) index="2" unique_id=391400632]
-position = Vector2(-3319, -1096)
-
-[node name="CollisionShape2D4" parent="room_piece5/StaticBody2D2" parent_id_path=PackedInt32Array(1617287924, 122980264) index="3" unique_id=212326418]
-position = Vector2(-3043, -1151)
-
-[node name="CollisionShape2D" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="0" unique_id=1197765520]
-position = Vector2(-3518, -2164)
-
-[node name="CollisionShape2D2" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="1" unique_id=375595637]
-position = Vector2(-3450, -1766)
-
-[node name="CollisionShape2D3" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="2" unique_id=1817043982]
-position = Vector2(-3307, -2008)
-
-[node name="CollisionShape2D4" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="3" unique_id=1219258179]
-position = Vector2(-3611, -1971)
-
-[node name="CollisionShape2D5" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="4" unique_id=1739735572]
-position = Vector2(-3041, -1797)
-
-[node name="CollisionShape2D" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="0" unique_id=659296284]
-position = Vector2(-2804, -1744)
-
-[node name="CollisionShape2D2" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="1" unique_id=492083954]
-position = Vector2(-2204, -1744)
-
-[node name="CollisionShape2D4" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="3" unique_id=424293370]
-position = Vector2(-2150, -1940)
-
-[node name="CollisionShape2D6" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="4" unique_id=2065128189]
-position = Vector2(-2507, -1769)
-
-[node name="CollisionPolygon2D" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="5" unique_id=1751771298]
-position = Vector2(-3278, -777)
-
 [node name="room_piece6" parent="." unique_id=115892344 instance=ExtResource("1_pvq73")]
 position = Vector2(3998, 2000)
 
-[node name="CollisionShape2D" parent="room_piece6/StaticBody2D" parent_id_path=PackedInt32Array(115892344, 99470810) index="0" unique_id=1064762727]
-position = Vector2(-2460, -2861)
+[node name="CollisionShape2D7" parent="room_piece6/StaticBody2D" parent_id_path=PackedInt32Array(115892344, 99470810) index="7" unique_id=634185131]
+position = Vector2(-4957, -3359)
 
-[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D" parent_id_path=PackedInt32Array(115892344, 99470810) index="1" unique_id=1982690336]
-position = Vector2(-3357, -2841)
+[node name="CollisionShape2D7" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="5" unique_id=285177905]
+position = Vector2(-5845, -3340)
 
-[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D" parent_id_path=PackedInt32Array(115892344, 99470810) index="3" unique_id=326285369]
-position = Vector2(-2456, -2833)
-
-[node name="CollisionShape2D" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="0" unique_id=2124233037]
-position = Vector2(-3396, -2782)
-
-[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="1" unique_id=1928957852]
-position = Vector2(-3793, -2769)
-
-[node name="CollisionShape2D3" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="2" unique_id=391400632]
-position = Vector2(-3888, -2784)
-
-[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="3" unique_id=212326418]
-position = Vector2(-3862, -2766)
+[node name="CollisionShape2D5" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="7" unique_id=593581117]
+position = Vector2(-5880, -3305)
 
 [node name="CollisionShape2D" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="0" unique_id=1197765520]
-position = Vector2(-3322, -4115)
+position = Vector2(-5854, -4353)
 
-[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="1" unique_id=375595637]
-position = Vector2(-3469, -3870)
+[node name="CollisionShape2D5" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="1" unique_id=1636384503]
+position = Vector2(-5720, -4274)
 
-[node name="CollisionShape2D3" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="2" unique_id=1817043982]
-position = Vector2(-3233, -4283)
+[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="2" unique_id=375595637]
+position = Vector2(-5823, -4255)
 
-[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="3" unique_id=1219258179]
-position = Vector2(-3367, -4001)
+[node name="CollisionShape2D3" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="3" unique_id=1817043982]
+position = Vector2(-5961, -4332)
 
-[node name="CollisionShape2D5" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="4" unique_id=1739735572]
-position = Vector2(-3977, -3785)
+[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="4" unique_id=1219258179]
+position = Vector2(-5844, -4344)
 
-[node name="CollisionShape2D" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="0" unique_id=659296284]
-position = Vector2(-2472, -3931)
+[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="2" unique_id=492083954]
+position = Vector2(-4973, -4255)
 
-[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="1" unique_id=492083954]
-position = Vector2(-2423, -3876)
-
-[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="3" unique_id=424293370]
-position = Vector2(-2541, -3738)
-
-[node name="CollisionShape2D6" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="4" unique_id=2065128189]
-position = Vector2(-2512, -3962)
-
-[node name="CollisionPolygon2D" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="5" unique_id=1751771298]
-position = Vector2(-3074, -2523)
+[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="4" unique_id=424293370]
+position = Vector2(-4920, -4258)
 
 [node name="room_piece7" parent="." unique_id=183691990 instance=ExtResource("1_pvq73")]
 position = Vector2(-1999, 0)
+
+[node name="CollisionShape2D" parent="room_piece7/StaticBody2D" parent_id_path=PackedInt32Array(183691990, 99470810) index="0" unique_id=1064762727]
+position = Vector2(1087, -1375)
+
+[node name="CollisionShape2D6" parent="room_piece7/StaticBody2D" parent_id_path=PackedInt32Array(183691990, 99470810) index="1" unique_id=635353654]
+position = Vector2(1008, -1462)
+
+[node name="CollisionShape2D3" parent="room_piece7/StaticBody2D" parent_id_path=PackedInt32Array(183691990, 99470810) index="4" unique_id=1371318716]
+position = Vector2(913, -1390)
+
+[node name="CollisionShape2D5" parent="room_piece7/StaticBody2D" parent_id_path=PackedInt32Array(183691990, 99470810) index="5" unique_id=644638540]
+position = Vector2(968, -1289)
 
 [node name="room_piece8" parent="." unique_id=1073936224 instance=ExtResource("1_pvq73")]
 position = Vector2(-1999, 2000)
@@ -274,206 +214,65 @@ position = Vector2(-6, 1061)
 
 [node name="txt" type="Node2D" parent="." unique_id=1188014602]
 
-[node name="Temps" parent="txt" unique_id=1268341129 instance=ExtResource("4_g1hwu")]
-offset_left = 899.0
-offset_top = 1907.0
-offset_right = 1089.0
-offset_bottom = 2094.0
-theme_override_font_sizes/font_size = 27
+[node name="Label" type="RichTextLabel" parent="txt" unique_id=588666303]
+offset_left = -312.0
+offset_top = 688.0
+offset_right = 319.0
+offset_bottom = 1312.0
+theme_override_font_sizes/normal_font_size = 55
+text = "« ARPANET,
+Sa première démonstration officielle date d'octobre "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Temps2" parent="txt" unique_id=594453489 instance=ExtResource("4_g1hwu")]
-offset_left = 899.0
-offset_top = 902.0
-offset_right = 1089.0
-offset_bottom = 1089.0
-theme_override_font_sizes/font_size = 27
+[node name="Label7" type="RichTextLabel" parent="txt" unique_id=1400485756]
+offset_left = 1690.0
+offset_top = 688.0
+offset_right = 2321.0
+offset_bottom = 1312.0
+theme_override_font_sizes/normal_font_size = 55
+text = "« Le langage C a été inventé au cours de l'année"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Temps3" parent="txt" unique_id=1589613196 instance=ExtResource("4_g1hwu")]
-offset_left = -87.0
-offset_top = -93.0
-offset_right = 103.0
-offset_bottom = 94.0
-theme_override_font_sizes/font_size = 27
+[node name="Label8" type="RichTextLabel" parent="txt" unique_id=970376145]
+offset_left = 1690.0
+offset_top = 1689.0
+offset_right = 2321.0
+offset_bottom = 2313.0
+theme_override_font_sizes/normal_font_size = 55
+text = "« En , Richard Karp a prouvé la NP-complétude de plusieurs autres problèmes fondamentaux en informatique"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Temps4" parent="txt" unique_id=1639275269 instance=ExtResource("4_g1hwu")]
-offset_left = -1093.0
-offset_top = -93.0
-offset_right = -903.0
-offset_bottom = 94.0
-theme_override_font_sizes/font_size = 27
+[node name="Label9" type="RichTextLabel" parent="txt" unique_id=833008860]
+offset_left = -309.0
+offset_top = 1689.0
+offset_right = 322.0
+offset_bottom = 2313.0
+theme_override_font_sizes/normal_font_size = 55
+text = "« MK-Ultra
+sa fin est décidée le 10 juillet"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Temps5" parent="txt" unique_id=1411367598 instance=ExtResource("4_g1hwu")]
-offset_left = 1914.0
-offset_top = -98.0
-offset_right = 2104.0
-offset_bottom = 89.0
-theme_override_font_sizes/font_size = 27
+[node name="Label10" type="RichTextLabel" parent="txt" unique_id=2112262056]
+offset_left = 682.0
+offset_top = 2685.0
+offset_right = 1313.0
+offset_bottom = 3309.0
+theme_override_font_sizes/normal_font_size = 55
+text = "« La Bille bleue est une photographie célèbre de la Terre, prise le 7 décembre"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Temps6" parent="txt" unique_id=1315211401 instance=ExtResource("4_g1hwu")]
-offset_left = 2905.0
-offset_top = -98.0
-offset_right = 3095.0
-offset_bottom = 89.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps7" parent="txt" unique_id=844105307 instance=ExtResource("4_g1hwu")]
-offset_left = 3911.0
-offset_top = -98.0
-offset_right = 4101.0
-offset_bottom = 89.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps8" parent="txt" unique_id=2055464576 instance=ExtResource("4_g1hwu")]
-offset_left = 2900.0
-offset_top = 913.0
-offset_right = 3090.0
-offset_bottom = 1100.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps9" parent="txt" unique_id=2040929341 instance=ExtResource("4_g1hwu")]
-offset_left = -1093.0
-offset_top = 913.0
-offset_right = -903.0
-offset_bottom = 1100.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps10" parent="txt" unique_id=1699143015 instance=ExtResource("4_g1hwu")]
-offset_left = -1093.0
-offset_top = 1904.0
-offset_right = -903.0
-offset_bottom = 2091.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps11" parent="txt" unique_id=1656018194 instance=ExtResource("4_g1hwu")]
-offset_left = 2905.0
-offset_top = 1904.0
-offset_right = 3095.0
-offset_bottom = 2091.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps12" parent="txt" unique_id=1082569543 instance=ExtResource("4_g1hwu")]
-offset_left = 2905.0
-offset_top = 2900.0
-offset_right = 3095.0
-offset_bottom = 3087.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps13" parent="txt" unique_id=260911134 instance=ExtResource("4_g1hwu")]
-offset_left = 1914.0
-offset_top = 2900.0
-offset_right = 2104.0
-offset_bottom = 3087.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps14" parent="txt" unique_id=1349077211 instance=ExtResource("4_g1hwu")]
-offset_left = -83.0
-offset_top = 2900.0
-offset_right = 107.0
-offset_bottom = 3087.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Temps15" parent="txt" unique_id=1670560918 instance=ExtResource("4_g1hwu")]
-offset_left = -1104.0
-offset_top = 2900.0
-offset_right = -914.0
-offset_bottom = 3087.0
-theme_override_font_sizes/font_size = 27
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="txt" unique_id=1488057597]
-offset_left = -92.0
-offset_top = 904.0
-offset_right = 101.0
-offset_bottom = 1094.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "ARPANET"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="txt" unique_id=1131751897]
-offset_left = 1906.0
-offset_top = 904.0
-offset_right = 2100.0
-offset_bottom = 1094.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "C LANGUAGE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="txt" unique_id=1562545298]
-offset_left = 1907.0
-offset_top = 1907.0
-offset_right = 2099.0
-offset_bottom = 2095.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "NP-complétude"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="txt" unique_id=14044465]
-offset_left = -90.0
-offset_top = 1908.0
-offset_right = 101.0
-offset_bottom = 2096.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "MKULTRA"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label5" type="Label" parent="txt" unique_id=1138131485]
-offset_left = 900.0
-offset_top = 2911.0
-offset_right = 1091.0
-offset_bottom = 3099.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "The Blue
-Marble"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label6" type="Label" parent="txt" unique_id=1668600054]
-offset_left = 900.0
-offset_top = -92.0
-offset_right = 1091.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "The Limits
-to Growth"
+[node name="Label11" type="RichTextLabel" parent="txt" unique_id=324337172]
+offset_left = 682.0
+offset_top = -312.0
+offset_right = 1313.0
+offset_bottom = 312.0
+theme_override_font_sizes/normal_font_size = 55
+text = "« Les Limites à la croissance, est un rapport commandé par le club de Rome et publié en "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -559,8 +358,17 @@ position = Vector2(2872, 1831)
 [node name="pt_blueprint13" parent="middleremonte" unique_id=880021957 instance=ExtResource("10_lory2")]
 position = Vector2(2945, 1831)
 
+[node name="pt_blueprint16" parent="middleremonte" unique_id=1399423510 instance=ExtResource("10_lory2")]
+position = Vector2(3020, 1875)
+
 [node name="pt_blueprint14" parent="middleremonte" unique_id=70017683 instance=ExtResource("10_lory2")]
 position = Vector2(3020, 1831)
+
+[node name="pt_blueprint15" parent="middleremonte" unique_id=353483636 instance=ExtResource("10_lory2")]
+position = Vector2(3174, 2059)
+
+[node name="pt_blueprint17" parent="middleremonte" unique_id=1978067894 instance=ExtResource("10_lory2")]
+position = Vector2(3174, 2011)
 
 [node name="first_pont" type="Node2D" parent="." unique_id=597952611]
 
@@ -629,7 +437,7 @@ position = Vector2(1126, 774)
 position = Vector2(1126, 727)
 
 [node name="3platformblueprint" parent="platforming" unique_id=853668133 instance=ExtResource("11_88ojq")]
-position = Vector2(865, 320)
+position = Vector2(855, 405)
 rotation = 1.5707964
 
 [node name="pt_blueprint3" parent="platforming" unique_id=1396402770 instance=ExtResource("10_lory2")]
@@ -668,6 +476,13 @@ position = Vector2(3082, 2371)
 [node name="pt_blueprint6" parent="sol" unique_id=904947611 instance=ExtResource("10_lory2")]
 position = Vector2(3233, 541)
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=758375941]
+offset_left = -3174.0
+offset_top = 3462.0
+offset_right = 4676.0
+offset_bottom = 5166.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
 [connection signal="body_entered" from="buttons/button" to="." method="_on_button_body_entered1"]
 [connection signal="body_entered" from="buttons/button2" to="." method="_on_button_2_body_entered3"]
 [connection signal="body_entered" from="buttons2/button" to="." method="_on_button_body_entered2"]
@@ -675,5 +490,5 @@ position = Vector2(3233, 541)
 [connection signal="body_entered" from="cam_zone" to="." method="_on_cam_zone_body_entered"]
 [connection signal="body_exited" from="cam_zone" to="." method="_on_cam_zone_body_exited"]
 
-[editable path="room_piece5"]
 [editable path="room_piece6"]
+[editable path="room_piece7"]

@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://do35bbyy0qllr" path="res://src/platforms/platform.tscn" id="8_ltygr"]
 [ext_resource type="PackedScene" uid="uid://bl14lcvp4g2nh" path="res://src/levels/room_1.tscn" id="9_7157o"]
 [ext_resource type="PackedScene" uid="uid://bt0bmj5dihnpp" path="res://src/vivants/monster.tscn" id="10_41y7b"]
-[ext_resource type="Texture2D" uid="uid://iyg0q8tiaeyv" path="res://sprites/lol rndr.png" id="11_tpyur"]
 [ext_resource type="PackedScene" uid="uid://c07ghb70rt8ft" path="res://src/levels/escalier_room.tscn" id="12_7ls7j"]
+[ext_resource type="PackedScene" uid="uid://c00nse01mwe63" path="res://src/platforms/laser_trap.tscn" id="13_f4kdv"]
 [ext_resource type="PackedScene" uid="uid://dhihe4rrnqw3d" path="res://src/levels/transition_rooms.tscn" id="13_h1car"]
 [ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="14_k548o"]
 [ext_resource type="PackedScene" uid="uid://cekaf18v66rc3" path="res://src/levels/portal_room.tscn" id="14_lqwi2"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://j3gcywxflkf1" path="res://src/tentacle/scenes/arm.tscn" id="31_k4edk"]
 [ext_resource type="PackedScene" uid="uid://mtmitx3k0avp" path="res://src/platforms/3_platformblueprint.tscn" id="32_f3u0r"]
 [ext_resource type="PackedScene" uid="uid://panlfw5wbxdr" path="res://src/cinematic/cinematic.tscn" id="32_hw218"]
+[ext_resource type="Texture2D" uid="uid://b7okeasjiaydw" path="res://sprites/banana.PNG" id="40_q5tgx"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_qrlky"]
 clip_count = 3
@@ -81,6 +82,12 @@ frequency = 0.8
 randomize_noise_seed = 1
 positional_noise = false
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5tgx"]
+size = Vector2(5296, 8127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxahx"]
+size = Vector2(3782, 278)
 
 [sub_resource type="Gradient" id="Gradient_f3u0r"]
 offsets = PackedFloat32Array(0, 0.11111111, 0.22222222, 0.33333334, 0.44444445, 0.5555556, 0.6666667, 0.7777778, 0.8888889)
@@ -214,7 +221,7 @@ curve = SubResource("Curve_tpyur")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41y7b"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(500, 1, 1)
+emission_box_extents = Vector3(700, 1, 1)
 direction = Vector3(0, 0, 0)
 spread = 0.0
 initial_velocity_min = 4.0
@@ -513,32 +520,128 @@ color = Color(0, 0, 0, 1)
 [node name="monster" parent="lvl4" unique_id=1259109965 instance=ExtResource("10_41y7b")]
 position = Vector2(18072, 2141)
 
-[node name="3platformblueprint" parent="lvl4" unique_id=705479190 instance=ExtResource("32_f3u0r")]
-position = Vector2(16446, 2218.0002)
-rotation = 0.16580628
+[node name="platforming" type="Node2D" parent="lvl4" unique_id=1642986404]
 
-[node name="3platformblueprint2" parent="lvl4" unique_id=853668133 instance=ExtResource("32_f3u0r")]
+[node name="3platformblueprint" parent="lvl4/platforming" unique_id=705479190 instance=ExtResource("32_f3u0r")]
+position = Vector2(16446, 2218.0002)
+rotation = 0.16580626
+
+[node name="3platformblueprint2" parent="lvl4/platforming" unique_id=853668133 instance=ExtResource("32_f3u0r")]
 position = Vector2(17168, 2208)
 
-[node name="3platformblueprint3" parent="lvl4" unique_id=991814562 instance=ExtResource("32_f3u0r")]
+[node name="3platformblueprint9" parent="lvl4/platforming" unique_id=965159260 instance=ExtResource("32_f3u0r")]
+position = Vector2(21881, 1946)
+
+[node name="3platformblueprint3" parent="lvl4/platforming" unique_id=991814562 instance=ExtResource("32_f3u0r")]
 position = Vector2(18014, 2446)
 
-[node name="Sprite2D" type="Sprite2D" parent="lvl4" unique_id=1233527066]
-visible = false
-position = Vector2(18084, 2096)
-scale = Vector2(0.27223545, 0.27223545)
-texture = ExtResource("11_tpyur")
+[node name="3platformblueprint10" parent="lvl4/platforming" unique_id=1650985231 instance=ExtResource("32_f3u0r")]
+position = Vector2(21466, 2172)
+
+[node name="3platformblueprint12" parent="lvl4/platforming" unique_id=1089989828 instance=ExtResource("32_f3u0r")]
+position = Vector2(21995, 2631)
+
+[node name="3platformblueprint11" parent="lvl4/platforming" unique_id=1185061561 instance=ExtResource("32_f3u0r")]
+position = Vector2(21225.998, 2288)
+rotation = 0.23212878
+
+[node name="pt_blueprint" parent="lvl4/platforming" unique_id=1421996364 instance=ExtResource("16_nfd4m")]
+position = Vector2(19038, 2484)
+
+[node name="laser_trap" parent="lvl4/platforming" unique_id=432819779 instance=ExtResource("13_f4kdv")]
+position = Vector2(18820.002, 2356.9995)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="laser_trap2" parent="lvl4/platforming" unique_id=28010633 instance=ExtResource("13_f4kdv")]
+position = Vector2(19248, 2388.0005)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="pt_blueprint2" parent="lvl4/platforming" unique_id=920875960 instance=ExtResource("16_nfd4m")]
+position = Vector2(20278, 2450.9998)
+rotation = -0.34906584
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="laser_trap3" parent="lvl4/platforming" unique_id=1077344691 instance=ExtResource("13_f4kdv")]
+position = Vector2(20081.002, 2425.9998)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="pt_blueprint3" parent="lvl4/platforming" unique_id=728287619 instance=ExtResource("16_nfd4m")]
+position = Vector2(20438, 2381)
+
+[node name="pt_blueprint4" parent="lvl4/platforming" unique_id=1928300726 instance=ExtResource("16_nfd4m")]
+position = Vector2(20909, 2262)
+
+[node name="pt_blueprint5" parent="lvl4/platforming" unique_id=1834952935 instance=ExtResource("16_nfd4m")]
+position = Vector2(20692, 2321)
+
+[node name="laser_trap5" parent="lvl4/platforming" unique_id=525813124 instance=ExtResource("13_f4kdv")]
+position = Vector2(21206, 1562.001)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="3platformblueprint4" parent="lvl4/platforming" unique_id=1117541906 instance=ExtResource("32_f3u0r")]
+position = Vector2(19451, 2537)
+
+[node name="3platformblueprint8" parent="lvl4/platforming" unique_id=1669193786 instance=ExtResource("32_f3u0r")]
+position = Vector2(21735, 1673.0001)
+rotation = 0.116937056
+
+[node name="3platformblueprint5" parent="lvl4/platforming" unique_id=1539158970 instance=ExtResource("32_f3u0r")]
+position = Vector2(21176.002, 2223)
+rotation = -1.4538592
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="3platformblueprint6" parent="lvl4/platforming" unique_id=1091978413 instance=ExtResource("32_f3u0r")]
+position = Vector2(21262.002, 1702.0002)
+rotation = -0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="3platformblueprint7" parent="lvl4/platforming" unique_id=265469911 instance=ExtResource("32_f3u0r")]
+position = Vector2(20987, 1505)
+rotation = 1.5707964
+
+[node name="laser_trap6" parent="lvl4/platforming" unique_id=813561764 instance=ExtResource("13_f4kdv")]
+position = Vector2(21914, 1834.0015)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="laser_trap7" parent="lvl4/platforming" unique_id=985013432 instance=ExtResource("13_f4kdv")]
+position = Vector2(21318, 2196.0007)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="cam_off_zone_lvl4" type="Area2D" parent="lvl4" unique_id=2125754162]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl4/cam_off_zone_lvl4" unique_id=1851805081]
+position = Vector2(20078, 5282.5)
+shape = SubResource("RectangleShape2D_q5tgx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="lvl4" unique_id=116005527]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl4/StaticBody2D" unique_id=204943477]
+position = Vector2(24357, 2748)
+shape = SubResource("RectangleShape2D_wxahx")
+
+[node name="Label" type="Label" parent="lvl4" unique_id=999948832]
+offset_left = 23955.0
+offset_top = 2529.0
+offset_right = 24449.0
+offset_bottom = 2628.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 72
+text = "Enjoy the Void"
+
+[node name="ball" parent="lvl4" unique_id=2080036255 instance=ExtResource("14_k548o")]
+position = Vector2(24037, 2590)
 
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
 [node name="paralaxmulticlolor" type="Parallax2D" parent="lvl1" unique_id=1615437823]
-scroll_scale = Vector2(0.5, 1)
+scroll_scale = Vector2(0.2, 0.2)
 
 [node name="gradient" type="TextureRect" parent="lvl1/paralaxmulticlolor" unique_id=404732774]
-offset_left = -2820.0
-offset_top = -4176.0
-offset_right = 10301.0
-offset_bottom = 35.0
+z_index = -3
+offset_left = -3724.0
+offset_top = -3762.0
+offset_right = 12660.0
+offset_bottom = 479.0
 texture = SubResource("NoiseTexture2D_01erx")
 
 [node name="ground" type="Sprite2D" parent="lvl1" unique_id=417271694]
@@ -547,14 +650,15 @@ scale = Vector2(0.274, 0.274)
 texture = ExtResource("1_p0cym")
 
 [node name="Parallax2D" type="Parallax2D" parent="lvl1" unique_id=549017948]
-scroll_scale = Vector2(0.9, 1)
+scroll_scale = Vector2(0.5, 0.5)
 
 [node name="burningBG" type="TextureRect" parent="lvl1/Parallax2D" unique_id=898654053]
+z_index = -2
 material = SubResource("ShaderMaterial_hw218")
 offset_left = -3724.0
-offset_top = -4206.0
+offset_top = -3762.0
 offset_right = 12660.0
-offset_bottom = 35.0
+offset_bottom = 479.0
 texture = SubResource("GradientTexture1D_7rpky")
 
 [node name="animparalaxburn" type="AnimationPlayer" parent="lvl1/Parallax2D/burningBG" unique_id=1781422004]
@@ -577,9 +681,9 @@ offset_right = 24025.0
 offset_bottom = 6173.0
 
 [node name="colors_bg" type="Node2D" parent="lvl1" unique_id=1620225080]
+z_index = -1
 
 [node name="ColorRect" type="ColorRect" parent="lvl1/colors_bg" unique_id=1731573631]
-z_index = -10
 offset_left = -3829.0
 offset_top = 36.0
 offset_right = 14463.0
@@ -587,7 +691,6 @@ offset_bottom = 6485.0
 color = Color(0.3019608, 0.3019608, 0.3019608, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="lvl1/colors_bg" unique_id=760454520]
-z_index = -10
 offset_left = -3523.0
 offset_top = 36.0
 offset_right = 14469.592
@@ -598,10 +701,10 @@ color = Color(0.35531357, 0.35531357, 0.3553135, 1)
 scroll_scale = Vector2(0, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="lvl1/Parallax2D2" unique_id=1809780474]
-position = Vector2(715, 34)
-amount = 500
+position = Vector2(623, 34)
+amount = 1000
 texture = SubResource("GradientTexture2D_qrlky")
-visibility_rect = Rect2(-500, -1, 1000, 2)
+visibility_rect = Rect2(-700, -1, 1400, 2)
 process_material = SubResource("ParticleProcessMaterial_41y7b")
 
 [node name="TextureRect" type="TextureRect" parent="lvl1/Parallax2D2" unique_id=764365305]
@@ -658,7 +761,7 @@ shape = SubResource("RectangleShape2D_76snk")
 position = Vector2(1768.035, -850.5)
 shape = SubResource("RectangleShape2D_7157o")
 
-[node name="pt_blueprint" parent="lvl1/Structure/sol collision & balcon & door" unique_id=920875960 instance=ExtResource("16_nfd4m")]
+[node name="pt_blueprint" parent="lvl1/Structure/sol collision & balcon & door" unique_id=167292562 instance=ExtResource("16_nfd4m")]
 position = Vector2(12618.713, 175.90402)
 
 [node name="pt_blueprint2" parent="lvl1/Structure/sol collision & balcon & door" unique_id=910585693 instance=ExtResource("16_nfd4m")]
@@ -736,7 +839,7 @@ position = Vector2(10407, 1296)
 [node name="escalier_room2" parent="lvl1/Structure" unique_id=1021733173 instance=ExtResource("12_7ls7j")]
 position = Vector2(629, 2409)
 
-[node name="ball" parent="lvl1/Structure/escalier_room2" unique_id=2080036255 instance=ExtResource("14_k548o")]
+[node name="ball" parent="lvl1/Structure/escalier_room2" unique_id=91751916 instance=ExtResource("14_k548o")]
 position = Vector2(229, 520)
 starting_vel = Vector2(-50, 0)
 
@@ -1279,29 +1382,22 @@ position = Vector2(-5143, -265)
 shape = SubResource("RectangleShape2D_f4kdv")
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
-visible = false
 position = Vector2(132, 0)
 
-[node name="white_bg" type="ColorRect" parent="lvl2" unique_id=1319015657]
-offset_left = -4414.0
-offset_top = -3222.0
-offset_right = 1576.0
-offset_bottom = 3242.0
-
 [node name="Parallax2D" type="Parallax2D" parent="lvl2" unique_id=296382481]
-scroll_scale = Vector2(0.9, 1)
+scroll_scale = Vector2(0.5, 0.5)
 
 [node name="burningBG" type="TextureRect" parent="lvl2/Parallax2D" unique_id=844253971]
 material = SubResource("ShaderMaterial_hw218")
 offset_left = -3724.0
-offset_top = -1576.0
+offset_top = -1815.0
 offset_right = 12660.0
-offset_bottom = 2665.0
+offset_bottom = 2426.0
 texture = SubResource("GradientTexture1D_7rpky")
 
 [node name="animparalaxburn" type="AnimationPlayer" parent="lvl2/Parallax2D/burningBG" unique_id=1162871267]
 libraries/ = SubResource("AnimationLibrary_hw218")
-autoplay = &"true_anim_multicolor"
+autoplay = &"new_animation"
 speed_scale = 0.1
 
 [node name="meta_room_piece" parent="lvl2" unique_id=1053535631 instance=ExtResource("30_lqu8a")]
@@ -1329,28 +1425,16 @@ offset_right = 7086.0
 offset_bottom = 6513.0
 color = Color(0, 0, 0, 1)
 
-[node name="Polygon2D" type="Polygon2D" parent="lvl2" unique_id=561294384]
-position = Vector2(-132, 0)
-color = Color(0.17283267, 0.17283267, 0.17283261, 1)
-polygon = PackedVector2Array(2253, 2124, 2521, 2760, 2283, 2623)
-
-[node name="Polygon2D2" type="Polygon2D" parent="lvl2" unique_id=2128111304]
-position = Vector2(-132, 0)
-color = Color(0.21950102, 0.21950102, 0.21950093, 1)
-polygon = PackedVector2Array(2675, 2689, 2470, 3096, 2677, 3158)
-
 [node name="3platformblueprint" parent="lvl2" unique_id=12004601 instance=ExtResource("32_f3u0r")]
-position = Vector2(1583, 2146)
+position = Vector2(1741, 2146)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="lvl2" unique_id=458216510]
-position = Vector2(-132, 0)
+[node name="3platformblueprint2" parent="lvl2" unique_id=103923040 instance=ExtResource("32_f3u0r")]
+position = Vector2(2269, 2171)
+rotation = -5.003859
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="lvl2/StaticBody2D" unique_id=668964798]
-z_index = 200
-polygon = PackedVector2Array(2253, 2124, 2521, 2760, 2283, 2623)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="lvl2/StaticBody2D" unique_id=1767149866]
-polygon = PackedVector2Array(2675, 2689, 2470, 3096, 2677, 3158)
+[node name="3platformblueprint3" parent="lvl2" unique_id=2137513189 instance=ExtResource("32_f3u0r")]
+position = Vector2(2385, 3111)
+rotation = -1.0489429
 
 [node name="void" type="Node2D" parent="." unique_id=1239576127]
 
@@ -1546,6 +1630,25 @@ shape = SubResource("RectangleShape2D_tpyur")
 [node name="cinematic" parent="intro" unique_id=2045197238 instance=ExtResource("32_hw218")]
 position = Vector2(0, -2934)
 
+[node name="Label" type="Label" parent="intro" unique_id=1314577898]
+offset_left = 282.0
+offset_top = -2594.0
+offset_right = 1693.0
+offset_bottom = -1975.0
+theme_override_colors/font_color = Color(0.73300546, 0.73300546, 0.7330052, 1)
+theme_override_font_sizes/font_size = 72
+text = "Tout
+    allait	
+        bien..."
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=594774376]
+position = Vector2(12861, -1517)
+rotation = -0.05235988
+scale = Vector2(0.08585404, 0.08585403)
+texture = ExtResource("40_q5tgx")
+
+[connection signal="body_entered" from="lvl4/cam_off_zone_lvl4" to="." method="_on_cam_off_zone_lvl_4_body_entered"]
+[connection signal="body_exited" from="lvl4/cam_off_zone_lvl4" to="." method="_on_cam_off_zone_lvl_4_body_exited"]
 [connection signal="body_entered" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_entered"]
 [connection signal="body_exited" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_exited"]
 [connection signal="body_entered" from="lvl1/cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_entered"]

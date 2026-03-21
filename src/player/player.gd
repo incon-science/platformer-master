@@ -490,6 +490,7 @@ func respawn_logic():
 @onready var animation_player_for_teleport_shader: AnimationPlayer = $AnimatedSpriteForTeleportShader/AnimationPlayerForTeleportShader
 var respawned : bool = false
 func respawn():
+	"""Global.pause_player = true"""
 	respawned=true
 	position = last_floor_pos
 	sprite.hide()
@@ -504,6 +505,10 @@ func respawn():
 	await get_tree().create_timer(1).timeout
 	animated_sprite_for_teleport_shader.hide()
 	sprite.show()
+	
+	"""Global.pause_player = false
+	await get_tree().create_timer(0.5).timeout"""
+	
 	respawned=false
 			
 			

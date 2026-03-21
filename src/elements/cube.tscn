@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dl5ldax2usub5" path="res://sprites/vaulti_door.png" id="2_sljeo"]
 [ext_resource type="Texture2D" uid="uid://bqg5am60828ng" path="res://sprites/vaulti_front.png" id="3_1xtlu"]
 [ext_resource type="Texture2D" uid="uid://db82fej7xukpf" path="res://sprites/lock.png" id="4_1xtlu"]
+[ext_resource type="AudioStream" uid="uid://dk5kioakoosjv" path="res://sounds/creatorshome-digital-click-357350.mp3" id="6_0rqph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sljeo"]
 size = Vector2(15.999985, 98)
@@ -272,5 +273,8 @@ shape = SubResource("RectangleShape2D_1xtlu")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1971734795]
 position = Vector2(9.5, -44)
 shape = SubResource("RectangleShape2D_0rqph")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=639615716]
+stream = ExtResource("6_0rqph")
 
 [connection signal="body_entered" from="openlockzone" to="." method="_on_openlockzone_body_entered"]

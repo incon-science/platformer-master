@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var locklayer: CanvasLayer = $locklayer
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var opened : bool = false
 
@@ -57,6 +58,7 @@ func _process(delta: float) -> void:
 		var touche = line[x_select]
 		
 		if touche != touche_prec :
+			audio_stream_player_2d.play()
 			touche_prec.modulate.a = 1
 			touche.modulate.a = 0.3
 			touche_prec = touche

@@ -66,6 +66,15 @@ func die_logic():
 	if player.global_position.y > 5000:
 		player.respawn()
 		
+func slowvoid_logic():
+	var limit = - 5555
+	if player.global_position.x < limit:
+		var diff = limit - player.global_position.x
+		diff = diff/1000
+		if diff >0.9:
+			diff = 0.9
+		Engine.time_scale = 1 - diff
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player.is_on_floor():
@@ -77,7 +86,7 @@ func _process(delta: float) -> void:
 
 		
 	music_player_logic()
-	
+	slowvoid_logic()
 	die_logic()
 
 #CAMERA LOGIC
@@ -98,7 +107,13 @@ func _on_no_offset_zone_lvl_2_body_exited(body: Node2D) -> void:
 	if body is Player : 
 		camoffesetbottom.priority = 0
 		camoffesetbottom_2.priority = 0
-
+func _on_cam_off_zone_lvl_4_body_entered(body: Node2D) -> void:
+	if body is Player : camoffesetbottom.priority = 10
+func _on_cam_off_zone_lvl_4_body_exited(body: Node2D) -> void:
+	if body is Player : 
+		camoffesetbottom.priority = 0
+		camoffesetbottom_2.priority = 0
+	
 func _on_cinematic_animation_finished() -> void:
 	canvas_modulate.show()
 	player.show()
