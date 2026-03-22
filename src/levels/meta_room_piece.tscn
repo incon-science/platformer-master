@@ -436,9 +436,17 @@ position = Vector2(1126, 774)
 [node name="pt_blueprint8" parent="platforming" unique_id=10167271 instance=ExtResource("10_lory2")]
 position = Vector2(1126, 727)
 
-[node name="3platformblueprint" parent="platforming" unique_id=853668133 instance=ExtResource("11_88ojq")]
-position = Vector2(855, 405)
-rotation = 1.5707964
+[node name="pt_blueprint9" parent="platforming" unique_id=1742962839 instance=ExtResource("10_lory2")]
+position = Vector2(835, 753)
+
+[node name="pt_blueprint10" parent="platforming" unique_id=396155610 instance=ExtResource("10_lory2")]
+position = Vector2(835, 753)
+
+[node name="pt_blueprint11" parent="platforming" unique_id=2131532892 instance=ExtResource("10_lory2")]
+position = Vector2(835, 717)
+
+[node name="pt_blueprint12" parent="platforming" unique_id=1846630784 instance=ExtResource("10_lory2")]
+position = Vector2(835, 670)
 
 [node name="pt_blueprint3" parent="platforming" unique_id=1396402770 instance=ExtResource("10_lory2")]
 position = Vector2(924, 917)

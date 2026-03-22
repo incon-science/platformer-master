@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://j3gcywxflkf1" path="res://src/tentacle/scenes/arm.tscn" id="31_k4edk"]
 [ext_resource type="PackedScene" uid="uid://mtmitx3k0avp" path="res://src/platforms/3_platformblueprint.tscn" id="32_f3u0r"]
 [ext_resource type="PackedScene" uid="uid://panlfw5wbxdr" path="res://src/cinematic/cinematic.tscn" id="32_hw218"]
+[ext_resource type="Texture2D" uid="uid://c0veum6e6fh21" path="res://sprites/rooms/groundWALL.png" id="36_q5tgx"]
 [ext_resource type="Texture2D" uid="uid://b7okeasjiaydw" path="res://sprites/banana.PNG" id="40_q5tgx"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_qrlky"]
@@ -365,6 +366,9 @@ size = Vector2(584, 1512)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4kdv"]
 size = Vector2(864, 954)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fynux"]
+size = Vector2(66.5, 3058)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01erx"]
 size = Vector2(5040, 4218)
 
@@ -423,6 +427,7 @@ dead_zone_height = 0.5
 draw_limits = true
 limit_left = -2712
 limit_top = -2990
+limit_right = 18722
 noise = SubResource("Resource_514du")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
@@ -441,6 +446,7 @@ dead_zone_height = 0.5
 draw_limits = true
 limit_left = -2712
 limit_top = -2990
+limit_right = 18722
 noise = SubResource("Resource_514du")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
@@ -500,6 +506,7 @@ position = Vector2(50, -2630)
 process_callback = 0
 limit_left = -2712
 limit_top = -2990
+limit_right = 18722
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1226431024]
@@ -1388,8 +1395,29 @@ position = Vector2(16734, 66)
 position = Vector2(-5143, -265)
 shape = SubResource("RectangleShape2D_f4kdv")
 
+[node name="therightWALL" type="Node2D" parent="lvl1" unique_id=1094977725]
+
+[node name="ground2" type="Sprite2D" parent="lvl1/therightWALL" unique_id=643741785]
+position = Vector2(18321.002, -1034.0001)
+rotation = -1.5707964
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("36_q5tgx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="lvl1/therightWALL" unique_id=1933543994]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl1/therightWALL/StaticBody2D" unique_id=568712549]
+position = Vector2(18569.25, -1386)
+shape = SubResource("RectangleShape2D_fynux")
+
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
 position = Vector2(132, 0)
+
+[node name="ColorRect" type="ColorRect" parent="lvl2" unique_id=1106919876]
+offset_left = -3932.0
+offset_top = -1701.0
+offset_right = 1139.0
+offset_bottom = 2498.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
 
 [node name="Parallax2D" type="Parallax2D" parent="lvl2" unique_id=296382481]
 scroll_scale = Vector2(0.5, 0.5)
@@ -1571,12 +1599,6 @@ position = Vector2(3114, 4001)
 [node name="pt_blueprint7" parent="lvl3" unique_id=184907153 instance=ExtResource("16_nfd4m")]
 position = Vector2(3036, 4001)
 
-[node name="pt_blueprint8" parent="lvl3" unique_id=1682629960 instance=ExtResource("16_nfd4m")]
-position = Vector2(4592, 3977)
-
-[node name="pt_blueprint9" parent="lvl3" unique_id=639221890 instance=ExtResource("16_nfd4m")]
-position = Vector2(4521, 3977)
-
 [node name="3platformblueprint2" parent="lvl3" unique_id=1379273589 instance=ExtResource("32_f3u0r")]
 position = Vector2(2012, 3925)
 
@@ -1589,6 +1611,12 @@ position = Vector2(4159, 4026)
 [node name="3platformblueprint" parent="lvl3" unique_id=614552391 instance=ExtResource("32_f3u0r")]
 position = Vector2(2312, 3619)
 rotation = -0.15533431
+
+[node name="pt_blueprint8" parent="lvl3" unique_id=1682629960 instance=ExtResource("16_nfd4m")]
+position = Vector2(4592, 3977)
+
+[node name="pt_blueprint9" parent="lvl3" unique_id=639221890 instance=ExtResource("16_nfd4m")]
+position = Vector2(4521, 3977)
 
 [node name="platform6" parent="lvl3" unique_id=1666926922 instance=ExtResource("8_ltygr")]
 position = Vector2(4642, 3780)

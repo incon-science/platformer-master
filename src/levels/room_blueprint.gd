@@ -4,6 +4,8 @@ extends Node2D
 @onready var ground: Sprite2D = $lvl1/ground
 
 @onready var zoomcam: PhantomCamera2D = $zoomcam
+@onready var cam: PhantomCamera2D = %cam
+@onready var cam_2: PhantomCamera2D = %cam2
 @onready var camoffesetbottom: PhantomCamera2D = $camoffesetbottom
 @onready var camoffesetbottom_2: PhantomCamera2D = %camoffesetbottom2
 
@@ -107,8 +109,12 @@ func _on_no_offset_zone_lvl_2_body_exited(body: Node2D) -> void:
 	if body is Player : 
 		camoffesetbottom.priority = 0
 		camoffesetbottom_2.priority = 0
+#CAMERA LOGIC FOR LVL4
 func _on_cam_off_zone_lvl_4_body_entered(body: Node2D) -> void:
-	if body is Player : camoffesetbottom.priority = 10
+	if body is Player : 
+		camoffesetbottom.priority = 10
+		cam.limit_right = 10000000
+		cam_2.limit_right = 10000000
 func _on_cam_off_zone_lvl_4_body_exited(body: Node2D) -> void:
 	if body is Player : 
 		camoffesetbottom.priority = 0
