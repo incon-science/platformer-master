@@ -62,7 +62,7 @@ func music_player_logic():
 		if lvl_2_loaded :
 			if audio_stream_player.get_stream_playback().get_current_clip_index() !=2:
 				audio_stream_player.get_stream_playback().switch_to_clip_by_name("stimulation")
-				audio_stream_player.volume_db=-10
+				audio_stream_player.volume_db=-25
 	
 func die_logic():
 	if player.global_position.y > 5000:

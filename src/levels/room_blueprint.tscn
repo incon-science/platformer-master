@@ -398,7 +398,7 @@ script = ExtResource("1_76snk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2028558489]
 stream = SubResource("AudioStreamInteractive_qrlky")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1187769887]
 environment = SubResource("Environment_vb8r4")
