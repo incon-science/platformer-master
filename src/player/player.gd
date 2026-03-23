@@ -366,7 +366,6 @@ func portal_logic():
 	else :
 		if !inside_portal : save_velocity.y = -jump_velocity
 
-
 func sprint_logic():
 	if Input.is_action_pressed("dash") and !(state_machine.active_state is DashState):
 		max_speed = 389.0*2
@@ -375,9 +374,9 @@ func sprint_logic():
 
 func logic_spe():
 	
-	if Input.is_action_pressed("timeslow"):
+	if Input.is_action_just_pressed("timeslow"):
 			Engine.time_scale = 0.1
-	else :
+	if Input.is_action_just_released("timeslow"):
 			Engine.time_scale = 1
 			
 	portal_logic()
@@ -388,6 +387,8 @@ func logic_spe():
 	sound_animation()
 	
 	camera_logic()
+	
+	impact_logic_anim()
 	
 	if Global.sprint_unlock:
 		sprint_logic()
@@ -416,7 +417,7 @@ func camera_logic()->void:
 		cam.noise.positional_noise= false
 		camoffesetbottom.noise.positional_noise= false
 		zoomcam.noise.positional_noise= false
-		
+
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":
 		sprite.rotation=rotation_
@@ -427,7 +428,6 @@ func try_play_new_anim(anim,rotation_=0.0) -> void:
 	else:
 		sprite.material.set("shader_parameter/activated",false);"""
 		
-
 var en_train_de_tomber = false
 func sprite_animation() -> void:
 	
@@ -461,10 +461,6 @@ func sprite_animation() -> void:
 		
 	if inside_portal:
 		try_play_new_anim("teleport")
-		
-
-		
-		
 			
 var saut_en_cours_for_sound = false
 func sound_animation() -> void:
@@ -500,25 +496,43 @@ func respawn_logic():
 @onready var animation_player_for_teleport_shader: AnimationPlayer = $AnimatedSpriteForTeleportShader/AnimationPlayerForTeleportShader
 var respawned : bool = false
 func respawn():
+	
 	"""Global.pause_player = true"""
 	respawned=true
-	position = last_floor_pos
 	sprite.hide()
+	sprite_shader.hide()
+	position = last_floor_pos
 	velocity = Vector2(0.0,0.0)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
 	if get_facing_dir() > 0 :
 		animated_sprite_for_teleport_shader.flip_h = false
 	if get_facing_dir() < 0 :
 		animated_sprite_for_teleport_shader.flip_h = true
 	animated_sprite_for_teleport_shader.show()
 	animation_player_for_teleport_shader.play("new_animation")
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	animated_sprite_for_teleport_shader.hide()
 	sprite.show()
-	
 	"""Global.pause_player = false
 	await get_tree().create_timer(0.5).timeout"""
 	
 	respawned=false
+	
 			
-			
+@onready var sprite_shader: AnimatedSprite2D = $SpriteShader
+var impact_dmg:bool=false
+func impact_logic_anim():
+	if impact_dmg :
+		Engine.time_scale = 0.02
+		duplicate_sprite()
+		sprite.hide()
+		sprite_shader.show()
+	else :
+		Engine.time_scale = 1
+func duplicate_sprite():
+	sprite_shader.position = sprite.position
+	sprite_shader.rotation = sprite.rotation
+	sprite_shader.scale = sprite.scale
+	sprite_shader.skew = sprite.skew
+	sprite_shader.animation = sprite.animation
+	sprite_shader.frame = sprite.frame

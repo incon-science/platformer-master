@@ -61,7 +61,7 @@ shader_parameter/fixed_edge_size = 0.1430000067925
 shader_parameter/noise_scale = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lodqg"]
-size = Vector2(228, 20)
+size = Vector2(228, 23.495766)
 
 [node name="laser_trap" type="Node2D" unique_id=853668133]
 rotation = -0.34906584
@@ -92,6 +92,13 @@ texture = ExtResource("2_lodqg")
 [node name="Area2D" type="Area2D" parent="." unique_id=190020138]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=222596742]
+position = Vector2(-2.9802322e-08, -0.64085805)
+scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_lodqg")
 
+[node name="Timer" type="Timer" parent="." unique_id=1178986371]
+wait_time = 0.015
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
