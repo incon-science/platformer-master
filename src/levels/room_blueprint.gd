@@ -84,6 +84,8 @@ func _process(delta: float) -> void:
 	if !audio_stream_player.playing:
 		audio_stream_player.play()
 
+	if Global.arc_en_ciel and !paralaxmulticlolor.visible:
+		paralaxmulticlolor.show()
 		
 	music_player_logic()
 	slowvoid_logic()
@@ -153,4 +155,4 @@ func _on_change_scene_zone_2_lvl_3_body_entered(body: Node2D) -> void:
 			
 			lvl_2_loaded = false
 			
-			paralaxmulticlolor.show()
+			Global.arc_en_ciel = true

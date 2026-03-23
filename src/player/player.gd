@@ -366,6 +366,13 @@ func portal_logic():
 	else :
 		if !inside_portal : save_velocity.y = -jump_velocity
 
+
+func sprint_logic():
+	if Input.is_action_pressed("dash") and !(state_machine.active_state is DashState):
+		max_speed = 389.0*2
+	else:
+		max_speed = 389
+
 func logic_spe():
 	
 	if Input.is_action_pressed("timeslow"):
@@ -381,6 +388,9 @@ func logic_spe():
 	sound_animation()
 	
 	camera_logic()
+	
+	if Global.sprint_unlock:
+		sprint_logic()
 	
 func camera_logic()->void:
 	if velocity.x > 0 and is_on_floor_only(): 

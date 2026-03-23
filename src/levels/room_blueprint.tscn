@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="14_k548o"]
 [ext_resource type="PackedScene" uid="uid://cekaf18v66rc3" path="res://src/levels/portal_room.tscn" id="14_lqwi2"]
 [ext_resource type="PackedScene" uid="uid://dhmslis0y0ejr" path="res://src/levels/blackwhite_room.tscn" id="15_1rkoo"]
+[ext_resource type="PackedScene" uid="uid://d2iu76n7i4seb" path="res://src/bonus/sprint_bonus.tscn" id="15_fynux"]
 [ext_resource type="PackedScene" uid="uid://bj5udf26hmxrj" path="res://src/levels/door_reverse.tscn" id="15_wxahx"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="16_nfd4m"]
 [ext_resource type="PackedScene" uid="uid://dr4h3pc0jii81" path="res://src/elements/fractale.tscn" id="17_p2ed6"]
@@ -634,19 +635,19 @@ position = Vector2(24357, 2748)
 shape = SubResource("RectangleShape2D_wxahx")
 
 [node name="Label" type="Label" parent="lvl4" unique_id=999948832]
-offset_left = 23971.0
-offset_top = 2529.0
-offset_right = 24812.0
-offset_bottom = 2628.0
+offset_left = 23519.0
+offset_top = 2528.0
+offset_right = 25130.0
+offset_bottom = 2831.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 72
-text = "You can always reboot..."
-
-[node name="ball" parent="lvl4" unique_id=1450316223 instance=ExtResource("14_k548o")]
-position = Vector2(24037, 2590)
+text = "They only need one signal to reload the matrix"
 
 [node name="door_reverse" parent="lvl4" unique_id=1047860162 instance=ExtResource("15_wxahx")]
 position = Vector2(26042, 2488)
+
+[node name="sprint_bonus" parent="lvl4" unique_id=1577787271 instance=ExtResource("15_fynux")]
+position = Vector2(21509, 2124)
 
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
