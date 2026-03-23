@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c0irw7svbnas1" path="res://src/platforms/laser_trap.gd" id="1_58m3p"]
 [ext_resource type="Shader" uid="uid://r5ttx5k57uqv" path="res://shaders/laser.gdshader" id="1_x0xp4"]
 [ext_resource type="Texture2D" uid="uid://dlm5ckn5uidyv" path="res://sprites/ball.png" id="2_lodqg"]
+[ext_resource type="AudioStream" uid="uid://v8884qf4a4xu" path="res://sounds/laser_sound.mp3" id="4_4fd10"]
 
 [sub_resource type="Animation" id="Animation_x0xp4"]
 length = 0.001
@@ -63,6 +64,11 @@ shader_parameter/noise_scale = Vector2(1, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lodqg"]
 size = Vector2(228, 23.495766)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nt2fc"]
+random_pitch = 1.0293022
+streams_count = 1
+stream_0/stream = ExtResource("4_4fd10")
+
 [node name="laser_trap" type="Node2D" unique_id=853668133]
 rotation = -0.34906584
 script = ExtResource("1_58m3p")
@@ -99,6 +105,10 @@ shape = SubResource("RectangleShape2D_lodqg")
 [node name="Timer" type="Timer" parent="." unique_id=1178986371]
 wait_time = 0.015
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=915938247]
+stream = SubResource("AudioStreamRandomizer_nt2fc")
+volume_db = 4.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

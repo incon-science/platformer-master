@@ -834,6 +834,7 @@ sprite_frames = SubResource("SpriteFrames_fd7k5")
 
 [node name="AnimationPlayerForTeleportShader" type="AnimationPlayer" parent="AnimatedSpriteForTeleportShader" unique_id=238446722]
 libraries/ = SubResource("AnimationLibrary_o04tx")
+speed_scale = 2.0
 
 [connection signal="wall_entered" from="." to="." method="_on_wall_entered"]
 [connection signal="wall_exited" from="." to="." method="_on_wall_exited"]

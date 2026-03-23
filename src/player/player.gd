@@ -510,7 +510,7 @@ func respawn():
 		animated_sprite_for_teleport_shader.flip_h = true
 	animated_sprite_for_teleport_shader.show()
 	animation_player_for_teleport_shader.play("new_animation")
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	animated_sprite_for_teleport_shader.hide()
 	sprite.show()
 	"""Global.pause_player = false

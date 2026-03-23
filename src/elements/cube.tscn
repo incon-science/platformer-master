@@ -91,6 +91,11 @@ size = Vector2(6, 106)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rqph"]
 size = Vector2(109, 6)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0rqph"]
+random_pitch = 1.0293022
+streams_count = 1
+stream_0/stream = ExtResource("6_0rqph")
+
 [node name="cube" type="Node2D" unique_id=1811157897]
 script = ExtResource("1_ksnvo")
 
@@ -275,6 +280,6 @@ position = Vector2(9.5, -44)
 shape = SubResource("RectangleShape2D_0rqph")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=639615716]
-stream = ExtResource("6_0rqph")
+stream = SubResource("AudioStreamRandomizer_0rqph")
 
 [connection signal="body_entered" from="openlockzone" to="." method="_on_openlockzone_body_entered"]
