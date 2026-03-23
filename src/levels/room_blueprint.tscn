@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="14_k548o"]
 [ext_resource type="PackedScene" uid="uid://cekaf18v66rc3" path="res://src/levels/portal_room.tscn" id="14_lqwi2"]
 [ext_resource type="PackedScene" uid="uid://dhmslis0y0ejr" path="res://src/levels/blackwhite_room.tscn" id="15_1rkoo"]
+[ext_resource type="PackedScene" uid="uid://bj5udf26hmxrj" path="res://src/levels/door_reverse.tscn" id="15_wxahx"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="16_nfd4m"]
 [ext_resource type="PackedScene" uid="uid://dr4h3pc0jii81" path="res://src/elements/fractale.tscn" id="17_p2ed6"]
 [ext_resource type="PackedScene" uid="uid://b05muqmrcfpjp" path="res://src/levels/bouche_degout.tscn" id="19_hwdj1"]
@@ -251,7 +252,7 @@ size = Vector2(6836, 53)
 size = Vector2(1307.3567, 21.999954)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41y7b"]
-size = Vector2(2017, 45)
+size = Vector2(2002, 45)
 
 [sub_resource type="Gradient" id="Gradient_76snk"]
 offsets = PackedFloat32Array(0, 0.98214287, 1)
@@ -391,7 +392,10 @@ fill_from = Vector2(0.16591929, 0)
 size = Vector2(47958, 720)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpyur"]
-size = Vector2(679, 417)
+size = Vector2(1446.75, 646.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd7fg"]
+size = Vector2(487, 644.5)
 
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
@@ -518,10 +522,10 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="lvl4" type="Node2D" parent="." unique_id=1554215756]
 
 [node name="ColorRect" type="ColorRect" parent="lvl4" unique_id=1528768766]
-offset_left = 14060.0
+offset_left = 13910.0
 offset_top = 342.0
-offset_right = 36007.0
-offset_bottom = 13895.0
+offset_right = 35857.0
+offset_bottom = 14102.0
 color = Color(0, 0, 0, 1)
 
 [node name="monster" parent="lvl4" unique_id=1259109965 instance=ExtResource("10_41y7b")]
@@ -547,6 +551,9 @@ position = Vector2(21466, 2172)
 
 [node name="3platformblueprint12" parent="lvl4/platforming" unique_id=1089989828 instance=ExtResource("32_f3u0r")]
 position = Vector2(21995, 2631)
+
+[node name="3platformblueprint13" parent="lvl4/platforming" unique_id=824327285 instance=ExtResource("32_f3u0r")]
+position = Vector2(22565, 2631)
 
 [node name="3platformblueprint11" parent="lvl4/platforming" unique_id=1185061561 instance=ExtResource("32_f3u0r")]
 position = Vector2(21225.998, 2288)
@@ -627,16 +634,19 @@ position = Vector2(24357, 2748)
 shape = SubResource("RectangleShape2D_wxahx")
 
 [node name="Label" type="Label" parent="lvl4" unique_id=999948832]
-offset_left = 23955.0
+offset_left = 23971.0
 offset_top = 2529.0
-offset_right = 24449.0
+offset_right = 24812.0
 offset_bottom = 2628.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 72
-text = "Enjoy the Void"
+text = "You can always reboot..."
 
-[node name="ball" parent="lvl4" unique_id=2080036255 instance=ExtResource("14_k548o")]
+[node name="ball" parent="lvl4" unique_id=1450316223 instance=ExtResource("14_k548o")]
 position = Vector2(24037, 2590)
+
+[node name="door_reverse" parent="lvl4" unique_id=1047860162 instance=ExtResource("15_wxahx")]
+position = Vector2(26042, 2488)
 
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
@@ -800,7 +810,7 @@ position = Vector2(12387.713, 32.904022)
 position = Vector2(12260.713, 115.90402)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=691344508]
-position = Vector2(15688.213, 226.90402)
+position = Vector2(15680.713, 226.90402)
 shape = SubResource("RectangleShape2D_41y7b")
 
 [node name="platforms" type="Node2D" parent="lvl1/Structure" unique_id=1655471774]
@@ -1111,7 +1121,7 @@ position = Vector2(537, 3669)
 [node name="pt_blueprint14" parent="lvl1/Structure/platform_underground" unique_id=913637869 instance=ExtResource("16_nfd4m")]
 position = Vector2(617, 3669)
 
-[node name="door" parent="lvl1/Structure" unique_id=1047860162 instance=ExtResource("20_c3xut")]
+[node name="door" parent="lvl1/Structure" unique_id=1943067928 instance=ExtResource("20_c3xut")]
 position = Vector2(-2247, 0)
 
 [node name="pt_blueprint" parent="lvl1/Structure" unique_id=104659938 instance=ExtResource("16_nfd4m")]
@@ -1410,6 +1420,7 @@ position = Vector2(18569.25, -1386)
 shape = SubResource("RectangleShape2D_fynux")
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
+visible = false
 position = Vector2(132, 0)
 
 [node name="ColorRect" type="ColorRect" parent="lvl2" unique_id=1106919876]
@@ -1461,7 +1472,7 @@ offset_bottom = 6513.0
 color = Color(0, 0, 0, 1)
 
 [node name="3platformblueprint" parent="lvl2" unique_id=12004601 instance=ExtResource("32_f3u0r")]
-position = Vector2(1741, 2146)
+position = Vector2(1752, 2146)
 
 [node name="3platformblueprint2" parent="lvl2" unique_id=103923040 instance=ExtResource("32_f3u0r")]
 position = Vector2(2269, 2171)
@@ -1657,8 +1668,14 @@ position = Vector2(3725, 3159)
 [node name="change_scene_zone" type="Area2D" parent="lvl3" unique_id=1214581139]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/change_scene_zone" unique_id=154632159]
-position = Vector2(4290.5, 3991.5)
+position = Vector2(2751.375, 3772.375)
 shape = SubResource("RectangleShape2D_tpyur")
+
+[node name="change_scene_zone2lvl3" type="Area2D" parent="lvl3" unique_id=182773400]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/change_scene_zone2lvl3" unique_id=238191723]
+position = Vector2(4215, 3807.25)
+shape = SubResource("RectangleShape2D_cd7fg")
 
 [node name="intro" type="Node2D" parent="." unique_id=1520859281]
 
@@ -1692,4 +1709,5 @@ texture = ExtResource("40_q5tgx")
 [connection signal="body_entered" from="lvl2/cam_zone/no_offset_zone_lvl2" to="." method="_on_no_offset_zone_lvl_2_body_entered"]
 [connection signal="body_exited" from="lvl2/cam_zone/no_offset_zone_lvl2" to="." method="_on_no_offset_zone_lvl_2_body_exited"]
 [connection signal="body_entered" from="lvl3/change_scene_zone" to="." method="_on_change_scene_zone_body_entered"]
+[connection signal="body_entered" from="lvl3/change_scene_zone2lvl3" to="." method="_on_change_scene_zone_2_lvl_3_body_entered"]
 [connection signal="animation_finished" from="intro/cinematic" to="." method="_on_cinematic_animation_finished"]

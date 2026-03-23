@@ -142,9 +142,13 @@ autoplay = &"new_animation"
 position = Vector2(-6870.7085, 1430.657)
 rotation = -0.41887903
 scale = Vector2(3.6496353, 3.6496353)
+emitting = true
 amount = 300
 lifetime = 2.0
+one_shot = false
 emission_rect_extents = Vector2(700, 1)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=918785063]
 position = Vector2(2249.274, 7)

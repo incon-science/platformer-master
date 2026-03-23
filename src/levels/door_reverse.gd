@@ -22,10 +22,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Global.door_opened:
+	if Global.door2_opened:
 		position.y = -400.0
-		cam.limit_left = -10000000
-		cam_2.limit_left = -10000000
+		cam.limit_right = 10000000
+		cam_2.limit_right = 10000000
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,16 +42,14 @@ func _process(delta: float) -> void:
 		sprite_2d_2.visible = false
 		sprite_2d_3.visible = false
 	
-	if !Global.door_opened:
-		if player.global_position.x < global_position.x + 400 and Global.nb_fractal ==3 :
-			Global.door_opened= true
+	if !Global.door2_opened:
+		if player.global_position.x > global_position.x - (400+267) and Global.nb_fractal ==3 :
+			Global.door2_opened= true
 			
 			
 			
-			cam.limit_left = -10000000
-			cam_2.limit_left = -10000000
-			cam.limit_top = -10000000
-			cam_2.limit_top = -10000000
+			cam.limit_right = 10000000
+			cam_2.limit_right = 10000000
 			
 			collision_shape_2d.set_deferred("disabled", true)
 			

@@ -16,9 +16,7 @@ extends Node2D
 @onready var intro: Node2D = $intro
 @onready var lvl_1: Node2D = $lvl1
 @onready var lvl_2: Node2D = $lvl2
-@onready var lvl_3: Node2D = $lvl3
 @onready var paralaxmulticlolor: Parallax2D = $lvl1/paralaxmulticlolor
-@onready var tentacles: Node2D = $void/tentacles
 
 var lvl_2_loaded:bool = false
 
@@ -45,8 +43,6 @@ func _ready() -> void:
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 	lvl_2.hide()
 	lvl_2.process_mode = Node.PROCESS_MODE_DISABLED
-	lvl_3.hide()
-	lvl_3.process_mode = Node.PROCESS_MODE_DISABLED
 	paralaxmulticlolor.hide()
 
 func music_player_logic():
@@ -82,6 +78,8 @@ func _process(delta: float) -> void:
 	if player.is_on_floor():
 		intro.hide()
 		intro.process_mode = Node.PROCESS_MODE_DISABLED
+		cam.limit_top = -10000000
+		cam_2.limit_top = -10000000
 
 	if !audio_stream_player.playing:
 		audio_stream_player.play()
@@ -113,8 +111,8 @@ func _on_no_offset_zone_lvl_2_body_exited(body: Node2D) -> void:
 func _on_cam_off_zone_lvl_4_body_entered(body: Node2D) -> void:
 	if body is Player : 
 		camoffesetbottom.priority = 10
-		cam.limit_right = 10000000
-		cam_2.limit_right = 10000000
+		cam.limit_right = 26240
+		cam_2.limit_right = 26240
 func _on_cam_off_zone_lvl_4_body_exited(body: Node2D) -> void:
 	if body is Player : 
 		camoffesetbottom.priority = 0
@@ -128,22 +126,31 @@ func _on_cinematic_animation_finished() -> void:
 func _on_change_scene_whenvoid_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if !lvl_2_loaded:
-			lvl_2_loaded = true
-			
-			lvl_2.show()
-			lvl_2.process_mode = Node.PROCESS_MODE_INHERIT
-			lvl_3.show()
-			lvl_3.process_mode = Node.PROCESS_MODE_INHERIT
 			lvl_1.hide()
 			lvl_1.process_mode = Node.PROCESS_MODE_DISABLED
+			lvl_2.show()
+			lvl_2.process_mode = Node.PROCESS_MODE_INHERIT
+			
+			lvl_2_loaded = true
 	
 func _on_change_scene_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
-		lvl_1.show()
-		lvl_1.process_mode = Node.PROCESS_MODE_INHERIT
-		lvl_2.hide()
-		lvl_2.process_mode = Node.PROCESS_MODE_DISABLED
-		
-		lvl_2_loaded = false
-		
-		paralaxmulticlolor.show()
+		if !lvl_2_loaded:
+			lvl_1.hide()
+			lvl_1.process_mode = Node.PROCESS_MODE_DISABLED
+			lvl_2.show()
+			lvl_2.process_mode = Node.PROCESS_MODE_INHERIT
+			
+			lvl_2_loaded = true
+
+func _on_change_scene_zone_2_lvl_3_body_entered(body: Node2D) -> void:
+	if body is Player:
+		if lvl_2_loaded:
+			lvl_1.show()
+			lvl_1.process_mode = Node.PROCESS_MODE_INHERIT
+			lvl_2.hide()
+			lvl_2.process_mode = Node.PROCESS_MODE_DISABLED
+			
+			lvl_2_loaded = false
+			
+			paralaxmulticlolor.show()

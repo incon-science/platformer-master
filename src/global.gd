@@ -2,6 +2,7 @@ extends Node
 
 var nb_fractal:int = 0
 var door_opened:bool = false
+var door2_opened:bool = false
 var pause_player:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +15,8 @@ func _process(delta: float) -> void:
 		get_tree().reload_current_scene()
 		nb_fractal = 0
 		door_opened = false
+		door2_opened = false
+	
 		
 	"""if pause_player :
 		if Input.is_action_pressed("dash"):
