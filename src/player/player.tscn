@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://wok5htmqtlc8" path="res://src/particles/slide_particle.tscn" id="21_hja65"]
 [ext_resource type="Script" uid="uid://b6rm5gkxphdna" path="res://src/player/spritetrail.gd" id="22_5shm8"]
 [ext_resource type="Shader" uid="uid://chycd0t8penwl" path="res://shaders/teleport.gdshader" id="26_a4vah"]
+[ext_resource type="Texture2D" uid="uid://daws767etifgu" path="res://sprites/ban.png" id="28_o04tx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qnmj6"]
 size = Vector3(48, 64, 1)
@@ -101,13 +102,13 @@ region = Rect2(798, 931, 133, 133)
 atlas = ExtResource("14_4uy46")
 region = Rect2(931, 931, 133, 133)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4uy46"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ox61"]
 atlas = ExtResource("14_4uy46")
-region = Rect2(0, 3, 133, 133)
+region = Rect2(0, 0, 133, 133)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k60ra"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7fkj"]
 atlas = ExtResource("14_4uy46")
-region = Rect2(133, 3, 133, 133)
+region = Rect2(133, 0, 133, 133)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4vah"]
 atlas = ExtResource("14_4uy46")
@@ -311,10 +312,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4uy46")
+"texture": SubResource("AtlasTexture_4ox61")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k60ra")
+"texture": SubResource("AtlasTexture_k7fkj")
 }],
 "loop": true,
 "name": &"idle",
@@ -769,8 +770,9 @@ emitting = false
 position = Vector2(0, -36)
 scale = Vector2(0.55, 0.55)
 sprite_frames = SubResource("SpriteFrames_j2873")
-animation = &"run"
+animation = &"jumpup"
 autoplay = "idle"
+frame = 2
 script = ExtResource("14_5efpn")
 
 [node name="SpriteShader" type="AnimatedSprite2D" parent="." unique_id=576551087]
@@ -835,6 +837,12 @@ sprite_frames = SubResource("SpriteFrames_fd7k5")
 [node name="AnimationPlayerForTeleportShader" type="AnimationPlayer" parent="AnimatedSpriteForTeleportShader" unique_id=238446722]
 libraries/ = SubResource("AnimationLibrary_o04tx")
 speed_scale = 2.0
+
+[node name="banane" type="Sprite2D" parent="." unique_id=383176699]
+modulate = Color(0.53351927, 0.53351927, 0.53351927, 1)
+position = Vector2(-2.999999, -12)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_o04tx")
 
 [connection signal="wall_entered" from="." to="." method="_on_wall_entered"]
 [connection signal="wall_exited" from="." to="." method="_on_wall_exited"]

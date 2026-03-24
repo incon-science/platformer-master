@@ -392,7 +392,9 @@ func logic_spe():
 	
 	if Global.sprint_unlock:
 		sprint_logic()
-	
+		
+	if Global.banane:banane_logic()
+			
 func camera_logic()->void:
 	if velocity.x > 0 and is_on_floor_only(): 
 		cam.priority = 1
@@ -421,6 +423,7 @@ func camera_logic()->void:
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":
 		sprite.rotation=rotation_
+		banane.rotation=rotation_
 		sprite.play(anim)
 		
 	"""if sprite.animation =="jumpdown":
@@ -536,3 +539,90 @@ func duplicate_sprite():
 	sprite_shader.skew = sprite.skew
 	sprite_shader.animation = sprite.animation
 	sprite_shader.frame = sprite.frame
+
+
+
+
+
+
+
+
+
+
+
+
+func banane_logic():
+	if sprite.animation=="idle":
+		if sprite.frame == 0:
+			if get_facing_dir() < 0 :banane.position = Vector2(-4,-5)
+			if get_facing_dir() > 0 :banane.position = Vector2(4,-5)
+		if sprite.frame == 1:
+			if get_facing_dir() < 0 :banane.position =Vector2(-5,-3)
+			if get_facing_dir() > 0 :banane.position = Vector2(5,-3)
+			
+	if sprite.animation=="run":
+		if sprite.frame == 0:
+			if get_facing_dir() < 0 :banane.position = Vector2(-7,1)
+			if get_facing_dir() > 0 :banane.position = Vector2(7,1)
+		if sprite.frame == 1:
+			if get_facing_dir() < 0 :banane.position =Vector2(-7,-1)
+			if get_facing_dir() > 0 :banane.position = Vector2(7,-1)
+		if sprite.frame == 2:
+			if get_facing_dir() < 0 :banane.position =Vector2(-7,-6)
+			if get_facing_dir() > 0 :banane.position = Vector2(7,-6)
+		if sprite.frame == 3:
+			if get_facing_dir() < 0 :banane.position =Vector2(-7,-3)
+			if get_facing_dir() > 0 :banane.position = Vector2(7,-3)
+		if sprite.frame == 4:
+			if get_facing_dir() < 0 :banane.position =Vector2(-7,1)
+			if get_facing_dir() > 0 :banane.position = Vector2(7,1)
+		if sprite.frame == 5:
+			if get_facing_dir() < 0 :banane.position =Vector2(-7,-2)
+			if get_facing_dir() > 0 :banane.position = Vector2(7,-2)
+		if sprite.frame == 6:
+			if get_facing_dir() < 0 :banane.position =Vector2(-8,-6)
+			if get_facing_dir() > 0 :banane.position = Vector2(8,-6)
+		if sprite.frame == 7:
+			if get_facing_dir() < 0 :banane.position =Vector2(-8,-4)
+			if get_facing_dir() > 0 :banane.position = Vector2(8,-4)
+			
+	if sprite.animation=="jumpup":
+		if sprite.rotation == 0:
+			if sprite.frame == 0:
+				if get_facing_dir() < 0 :banane.position = Vector2(-5,1)
+				if get_facing_dir() > 0 :banane.position = Vector2(5,1)
+			if sprite.frame == 1:
+				if get_facing_dir() < 0 :banane.position =Vector2(-5,-10)
+				if get_facing_dir() > 0 :banane.position = Vector2(5,-10)
+			if sprite.frame == 2:
+				if get_facing_dir() < 0 :banane.position =Vector2(-5,-12)
+				if get_facing_dir() > 0 :banane.position = Vector2(5,-12)
+		else:
+			if sprite.rotation<0:
+				if get_facing_dir() < 0 :banane.position = Vector2(5,-10)
+				if get_facing_dir() > 0 :banane.position = Vector2(12,-15)
+			if sprite.rotation>0:
+				if get_facing_dir() < 0 :banane.position = Vector2(-12,-15)
+				if get_facing_dir() > 0 :banane.position = Vector2(-5,-10)
+			
+	if sprite.animation=="jumpdown":
+		if sprite.frame == 0:
+			if get_facing_dir() < 0 :banane.position = Vector2(-6,-10)
+			if get_facing_dir() > 0 :banane.position = Vector2(6,-10)
+		if sprite.frame == 1:
+			if get_facing_dir() < 0 :banane.position =Vector2(-6,1)
+			if get_facing_dir() > 0 :banane.position = Vector2(6,1)
+			
+	if sprite.animation=="jumpground":
+		if sprite.frame == 0:
+			if get_facing_dir() < 0 :banane.position = Vector2(-6,-1)
+			if get_facing_dir() > 0 :banane.position = Vector2(6,-1)
+		if sprite.frame == 1:
+			if get_facing_dir() < 0 :banane.position =Vector2(-6,-3)
+			if get_facing_dir() > 0 :banane.position = Vector2(6,-3)
+		
+	if get_facing_dir() < 0 :
+		banane.flip_h = true
+	if get_facing_dir() > 0 :
+		banane.flip_h = false
+@onready var banane: Sprite2D = $banane
