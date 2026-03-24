@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://c0veum6e6fh21" path="res://sprites/rooms/groundWALL.png" id="36_q5tgx"]
 [ext_resource type="Texture2D" uid="uid://b7okeasjiaydw" path="res://sprites/banana.PNG" id="40_q5tgx"]
 [ext_resource type="PackedScene" uid="uid://clfwr5px8ecxr" path="res://src/levels/descente_en_enfer.tscn" id="43_cd7fg"]
+[ext_resource type="Texture2D" uid="uid://iyg0q8tiaeyv" path="res://sprites/lol rndr.png" id="44_ppux1"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_qrlky"]
 clip_count = 3
@@ -1704,6 +1705,11 @@ scale = Vector2(0.08585404, 0.08585403)
 texture = ExtResource("40_q5tgx")
 
 [node name="lvl5" type="Node2D" parent="." unique_id=574120747]
+
+[node name="Sprite2D" type="Sprite2D" parent="lvl5" unique_id=1237022949]
+position = Vector2(29114.107, 4631.764)
+scale = Vector2(0.7261423, 0.7261423)
+texture = ExtResource("44_ppux1")
 
 [node name="descente_en_enfer" parent="lvl5" unique_id=152367028 instance=ExtResource("43_cd7fg")]
 position = Vector2(27758.86, 2799.0413)
