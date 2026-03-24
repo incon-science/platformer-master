@@ -41,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://mtmitx3k0avp" path="res://src/platforms/3_platformblueprint.tscn" id="32_f3u0r"]
 [ext_resource type="PackedScene" uid="uid://panlfw5wbxdr" path="res://src/cinematic/cinematic.tscn" id="32_hw218"]
 [ext_resource type="Texture2D" uid="uid://c0veum6e6fh21" path="res://sprites/rooms/groundWALL.png" id="36_q5tgx"]
-[ext_resource type="Texture2D" uid="uid://b7okeasjiaydw" path="res://sprites/banana.PNG" id="40_q5tgx"]
+[ext_resource type="PackedScene" uid="uid://bvt2l0djqinci" path="res://src/elements/banane.tscn" id="39_ppux1"]
 [ext_resource type="PackedScene" uid="uid://clfwr5px8ecxr" path="res://src/levels/descente_en_enfer.tscn" id="43_cd7fg"]
 [ext_resource type="Texture2D" uid="uid://iyg0q8tiaeyv" path="res://sprites/lol rndr.png" id="44_ppux1"]
 
@@ -399,6 +399,12 @@ size = Vector2(1446.75, 646.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd7fg"]
 size = Vector2(487, 644.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppux1"]
+size = Vector2(26472.516, 3367.3008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6lma"]
+size = Vector2(13629.694, 2751.58)
 
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
@@ -1427,8 +1433,10 @@ shape = SubResource("RectangleShape2D_fynux")
 position = Vector2(1288.7085, -433.7632)
 type_bonus = "dash"
 
+[node name="banane" parent="lvl1" unique_id=935544302 instance=ExtResource("39_ppux1")]
+position = Vector2(12862.587, -1523.9225)
+
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
-visible = false
 position = Vector2(132, 0)
 
 [node name="ColorRect" type="ColorRect" parent="lvl2" unique_id=1106919876]
@@ -1469,7 +1477,7 @@ shape = SubResource("RectangleShape2D_01erx")
 offset_left = 147.0
 offset_top = -1806.0
 offset_right = 1171.0
-offset_bottom = 3221.0
+offset_bottom = 7922.248
 texture = SubResource("GradientTexture2D_f3u0r")
 
 [node name="ColorRect2" type="ColorRect" parent="lvl2" unique_id=28361229]
@@ -1698,12 +1706,6 @@ text = "Tout
     allait	
         bien..."
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=594774376]
-position = Vector2(12861, -1517)
-rotation = -0.05235988
-scale = Vector2(0.08585404, 0.08585403)
-texture = ExtResource("40_q5tgx")
-
 [node name="lvl5" type="Node2D" parent="." unique_id=574120747]
 
 [node name="Sprite2D" type="Sprite2D" parent="lvl5" unique_id=1237022949]
@@ -1713,6 +1715,16 @@ texture = ExtResource("44_ppux1")
 
 [node name="descente_en_enfer" parent="lvl5" unique_id=152367028 instance=ExtResource("43_cd7fg")]
 position = Vector2(27758.86, 2799.0413)
+
+[node name="DEATHZONE" type="Area2D" parent="." unique_id=265587749]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEATHZONE" unique_id=1536129664]
+position = Vector2(-1612.6501, 6503.9346)
+shape = SubResource("RectangleShape2D_ppux1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DEATHZONE" unique_id=505632046]
+position = Vector2(18326.043, 5406.9697)
+shape = SubResource("RectangleShape2D_y6lma")
 
 [connection signal="body_entered" from="lvl4/cam_off_zone_lvl4" to="." method="_on_cam_off_zone_lvl_4_body_entered"]
 [connection signal="body_exited" from="lvl4/cam_off_zone_lvl4" to="." method="_on_cam_off_zone_lvl_4_body_exited"]
@@ -1726,3 +1738,4 @@ position = Vector2(27758.86, 2799.0413)
 [connection signal="body_entered" from="lvl3/change_scene_zone" to="." method="_on_change_scene_zone_body_entered"]
 [connection signal="body_entered" from="lvl3/change_scene_zone2lvl3" to="." method="_on_change_scene_zone_2_lvl_3_body_entered"]
 [connection signal="animation_finished" from="intro/cinematic" to="." method="_on_cinematic_animation_finished"]
+[connection signal="body_entered" from="DEATHZONE" to="." method="_on_deathzone_body_entered"]

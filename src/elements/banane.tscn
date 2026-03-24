@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bvt2l0djqinci"]
+
+[ext_resource type="Script" uid="uid://c5rt2w37ry43p" path="res://src/elements/banane.gd" id="1_u67fu"]
+[ext_resource type="Texture2D" uid="uid://b7okeasjiaydw" path="res://sprites/banana.PNG" id="2_u67fu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u67fu"]
+size = Vector2(77.272705, 41.818176)
+
+[node name="banane" type="Node2D" unique_id=935544302]
+script = ExtResource("1_u67fu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2140040976]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_u67fu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=874296217]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1458498557]
+position = Vector2(-5.5454407, 12.363647)
+shape = SubResource("RectangleShape2D_u67fu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

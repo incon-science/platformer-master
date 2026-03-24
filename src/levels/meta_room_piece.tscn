@@ -488,7 +488,7 @@ position = Vector2(3233, 541)
 offset_left = -3174.0
 offset_top = 3462.0
 offset_right = 4676.0
-offset_bottom = 5166.0
+offset_bottom = 13545.0
 color = Color(0.49803922, 0.49803922, 0.49803922, 1)
 
 [connection signal="body_entered" from="buttons/button" to="." method="_on_button_body_entered1"]

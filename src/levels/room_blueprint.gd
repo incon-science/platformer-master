@@ -60,10 +60,8 @@ func music_player_logic():
 				audio_stream_player.get_stream_playback().switch_to_clip_by_name("stimulation")
 				audio_stream_player.volume_db=-25
 	
-func die_logic():
-	if player.global_position.y > 5000:
-		player.respawn()
-		
+
+	
 func slowvoid_logic():
 	var limit = - 5555
 	if player.global_position.x < limit:
@@ -89,7 +87,6 @@ func _process(delta: float) -> void:
 		
 	music_player_logic()
 	slowvoid_logic()
-	die_logic()
 
 #CAMERA LOGIC
 func _on_zoom_zone_body_entered(body: Node2D) -> void:
@@ -156,3 +153,9 @@ func _on_change_scene_zone_2_lvl_3_body_entered(body: Node2D) -> void:
 			lvl_2_loaded = false
 			
 			Global.arc_en_ciel = true
+
+
+func _on_deathzone_body_entered(body: Node2D) -> void:
+	if body is Player:
+		player.respawn()
+		

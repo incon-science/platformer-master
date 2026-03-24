@@ -552,6 +552,8 @@ func duplicate_sprite():
 
 
 func banane_logic():
+	if !banane.visible:banane.show()
+	
 	if sprite.animation=="idle":
 		if sprite.frame == 0:
 			if get_facing_dir() < 0 :banane.position = Vector2(-4,-5)
