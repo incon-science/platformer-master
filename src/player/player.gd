@@ -259,7 +259,7 @@ func can_dash() -> bool:
 	return dash_allowed and dash_cooldown_timer.is_stopped()
 
 func try_dash() -> void:
-	if Input.is_action_just_pressed("dash") and can_dash():
+	if Input.is_action_just_pressed("dash") and can_dash() and Global.dash_unlock:
 		state_machine.activate_state_by_name("DashState")
 		dash_sound.play()
 

@@ -5,6 +5,7 @@ var door_opened:bool = false
 var door2_opened:bool = false
 var pause_player:bool = false
 var arc_en_ciel:bool = false
+var dash_unlock:bool = false
 var sprint_unlock:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

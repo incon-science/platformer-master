@@ -30,17 +30,22 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.nb_fractal == 1:
-		sprite_2d.visible = true
-	if Global.nb_fractal == 2:
-		sprite_2d_2.visible = true
-	if Global.nb_fractal == 3:
-		sprite_2d_3.visible = true
-		
 	if Global.nb_fractal == 0:
 		sprite_2d.visible = false
 		sprite_2d_2.visible = false
 		sprite_2d_3.visible = false
+	if Global.nb_fractal == 1:
+		sprite_2d.visible = true
+		sprite_2d_2.visible = false
+		sprite_2d_3.visible = false
+	if Global.nb_fractal == 2:
+		sprite_2d.visible = true
+		sprite_2d_2.visible = true
+		sprite_2d_3.visible = false
+	if Global.nb_fractal == 3:
+		sprite_2d.visible = true
+		sprite_2d_2.visible = true
+		sprite_2d_3.visible = true
 	
 	if !Global.door_opened:
 		if player.global_position.x < global_position.x + 400 and Global.nb_fractal ==3 :

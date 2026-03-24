@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d2iu76n7i4seb"]
 
 [ext_resource type="Texture2D" uid="uid://0krpdldcn1rw" path="res://sprites/sprint1.png" id="1_ea6r3"]
-[ext_resource type="Script" uid="uid://mscdt2l6ixx3" path="res://src/bonus/sprint_bonus.gd" id="1_k404d"]
+[ext_resource type="Script" uid="uid://mscdt2l6ixx3" path="res://src/bonus/bonus.gd" id="1_k404d"]
 [ext_resource type="Texture2D" uid="uid://c84dxhfcuhtmd" path="res://sprites/sprint2.png" id="2_k404d"]
+[ext_resource type="Texture2D" uid="uid://c1pwixmon4bp2" path="res://sprites/dash1.png" id="3_yyq72"]
 
 [sub_resource type="Animation" id="Animation_yyq72"]
 length = 0.001
@@ -154,7 +155,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea6r3"]
 size = Vector2(41, 41)
 
-[node name="sprint_bonus" type="Node2D" unique_id=1577787271]
+[node name="bonus" type="Node2D" unique_id=1577787271]
 z_index = 500
 script = ExtResource("1_k404d")
 
@@ -162,9 +163,15 @@ script = ExtResource("1_k404d")
 
 [node name="sprites" type="Node2D" parent="Node2D" unique_id=352828044]
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/sprites" unique_id=2083008858]
+[node name="sprintsprite" type="Sprite2D" parent="Node2D/sprites" unique_id=2083008858]
+visible = false
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_ea6r3")
+
+[node name="dashsprite" type="Sprite2D" parent="Node2D/sprites" unique_id=447138727]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_yyq72")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D/sprites" unique_id=1329979185]
 visible = false
@@ -190,7 +197,7 @@ offset_top = -103.0
 offset_right = 88.0
 offset_bottom = 20.0
 theme_override_font_sizes/normal_font_size = 16
-text = "You can now sprint if you keep dash input pressed !"
+bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="14_k548o"]
 [ext_resource type="PackedScene" uid="uid://cekaf18v66rc3" path="res://src/levels/portal_room.tscn" id="14_lqwi2"]
 [ext_resource type="PackedScene" uid="uid://dhmslis0y0ejr" path="res://src/levels/blackwhite_room.tscn" id="15_1rkoo"]
-[ext_resource type="PackedScene" uid="uid://d2iu76n7i4seb" path="res://src/bonus/sprint_bonus.tscn" id="15_fynux"]
+[ext_resource type="PackedScene" uid="uid://d2iu76n7i4seb" path="res://src/bonus/bonus.tscn" id="15_fynux"]
 [ext_resource type="PackedScene" uid="uid://bj5udf26hmxrj" path="res://src/levels/door_reverse.tscn" id="15_wxahx"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="16_nfd4m"]
 [ext_resource type="PackedScene" uid="uid://dr4h3pc0jii81" path="res://src/elements/fractale.tscn" id="17_p2ed6"]
@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://panlfw5wbxdr" path="res://src/cinematic/cinematic.tscn" id="32_hw218"]
 [ext_resource type="Texture2D" uid="uid://c0veum6e6fh21" path="res://sprites/rooms/groundWALL.png" id="36_q5tgx"]
 [ext_resource type="Texture2D" uid="uid://b7okeasjiaydw" path="res://sprites/banana.PNG" id="40_q5tgx"]
+[ext_resource type="PackedScene" uid="uid://clfwr5px8ecxr" path="res://src/levels/descente_en_enfer.tscn" id="43_cd7fg"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_qrlky"]
 clip_count = 3
@@ -90,7 +91,7 @@ metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 size = Vector2(5296, 8127)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wxahx"]
-size = Vector2(3782, 278)
+size = Vector2(4887.91, 278)
 
 [sub_resource type="Gradient" id="Gradient_f3u0r"]
 offsets = PackedFloat32Array(0, 0.11111111, 0.22222222, 0.33333334, 0.44444445, 0.5555556, 0.6666667, 0.7777778, 0.8888889)
@@ -631,7 +632,7 @@ shape = SubResource("RectangleShape2D_q5tgx")
 [node name="StaticBody2D" type="StaticBody2D" parent="lvl4" unique_id=116005527]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl4/StaticBody2D" unique_id=204943477]
-position = Vector2(24357, 2748)
+position = Vector2(24909.955, 2748)
 shape = SubResource("RectangleShape2D_wxahx")
 
 [node name="Label" type="Label" parent="lvl4" unique_id=999948832]
@@ -648,6 +649,7 @@ position = Vector2(26042, 2488)
 
 [node name="sprint_bonus" parent="lvl4" unique_id=1577787271 instance=ExtResource("15_fynux")]
 position = Vector2(21509, 2124)
+type_bonus = "sprint"
 
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
@@ -1420,6 +1422,10 @@ texture = ExtResource("36_q5tgx")
 position = Vector2(18569.25, -1386)
 shape = SubResource("RectangleShape2D_fynux")
 
+[node name="bonus" parent="lvl1" unique_id=715804290 instance=ExtResource("15_fynux")]
+position = Vector2(1288.7085, -433.7632)
+type_bonus = "dash"
+
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
 visible = false
 position = Vector2(132, 0)
@@ -1696,6 +1702,11 @@ position = Vector2(12861, -1517)
 rotation = -0.05235988
 scale = Vector2(0.08585404, 0.08585403)
 texture = ExtResource("40_q5tgx")
+
+[node name="lvl5" type="Node2D" parent="." unique_id=574120747]
+
+[node name="descente_en_enfer" parent="lvl5" unique_id=152367028 instance=ExtResource("43_cd7fg")]
+position = Vector2(27758.86, 2799.0413)
 
 [connection signal="body_entered" from="lvl4/cam_off_zone_lvl4" to="." method="_on_cam_off_zone_lvl_4_body_entered"]
 [connection signal="body_exited" from="lvl4/cam_off_zone_lvl4" to="." method="_on_cam_off_zone_lvl_4_body_exited"]
