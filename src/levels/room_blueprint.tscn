@@ -44,6 +44,8 @@
 [ext_resource type="PackedScene" uid="uid://bvt2l0djqinci" path="res://src/elements/banane.tscn" id="39_ppux1"]
 [ext_resource type="PackedScene" uid="uid://clfwr5px8ecxr" path="res://src/levels/descente_en_enfer.tscn" id="43_cd7fg"]
 [ext_resource type="Texture2D" uid="uid://iyg0q8tiaeyv" path="res://sprites/lol rndr.png" id="44_ppux1"]
+[ext_resource type="Shader" uid="uid://bhvwkmtbmrlqf" path="res://shaders/starfield.gdshader" id="45_y6lma"]
+[ext_resource type="PackedScene" uid="uid://bdd03axytgixu" path="res://src/platforms/damage_block.tscn" id="46_7f7j5"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_qrlky"]
 clip_count = 3
@@ -400,6 +402,25 @@ size = Vector2(1446.75, 646.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd7fg"]
 size = Vector2(487, 644.5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7f7j5"]
+shader = ExtResource("45_y6lma")
+shader_parameter/dimensions = Vector2(1024, 600)
+shader_parameter/small_stars = 50.0
+shader_parameter/small_stars_far_size = 0.5
+shader_parameter/small_stars_near_size = 1.0
+shader_parameter/large_stars = 8.0
+shader_parameter/large_stars_far_size = 0.5
+shader_parameter/large_stars_near_size = 1.0
+shader_parameter/far_stars_color = Color(0.5, 0, 1, 1)
+shader_parameter/near_stars_color = Color(1, 1, 1, 1)
+shader_parameter/base_scroll_speed = 0.05
+shader_parameter/additional_scroll_speed = 0.05
+
+[sub_resource type="Gradient" id="Gradient_5ihcl"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1tqiw"]
+gradient = SubResource("Gradient_5ihcl")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppux1"]
 size = Vector2(26472.516, 3367.3008)
 
@@ -643,13 +664,14 @@ position = Vector2(24909.955, 2748)
 shape = SubResource("RectangleShape2D_wxahx")
 
 [node name="Label" type="Label" parent="lvl4" unique_id=999948832]
-offset_left = 23519.0
-offset_top = 2528.0
-offset_right = 25130.0
-offset_bottom = 2831.0
+offset_left = 23484.822
+offset_top = 2429.2651
+offset_right = 25095.822
+offset_bottom = 2732.2651
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 72
-text = "They only need one signal to reload the matrix"
+text = "Arrête de t'attacher à la réalité
+                             IT only needs one signal"
 
 [node name="door_reverse" parent="lvl4" unique_id=1047860162 instance=ExtResource("15_wxahx")]
 position = Vector2(26042, 2488)
@@ -1436,7 +1458,19 @@ type_bonus = "dash"
 [node name="banane" parent="lvl1" unique_id=935544302 instance=ExtResource("39_ppux1")]
 position = Vector2(12862.587, -1523.9225)
 
+[node name="TRAPS" type="Node2D" parent="lvl1" unique_id=1752754461]
+
+[node name="damage_block" parent="lvl1/TRAPS" unique_id=1974418075 instance=ExtResource("46_7f7j5")]
+position = Vector2(669.68115, -817.03174)
+
+[node name="damage_block3" parent="lvl1/TRAPS" unique_id=111486398 instance=ExtResource("46_7f7j5")]
+position = Vector2(5448.4634, -1195.4634)
+
+[node name="damage_block2" parent="lvl1/TRAPS" unique_id=946057123 instance=ExtResource("46_7f7j5")]
+position = Vector2(812.0982, -661.30475)
+
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
+visible = false
 position = Vector2(132, 0)
 
 [node name="ColorRect" type="ColorRect" parent="lvl2" unique_id=1106919876]
@@ -1695,16 +1729,18 @@ shape = SubResource("RectangleShape2D_cd7fg")
 [node name="cinematic" parent="intro" unique_id=2045197238 instance=ExtResource("32_hw218")]
 position = Vector2(0, -2934)
 
-[node name="Label" type="Label" parent="intro" unique_id=1314577898]
-offset_left = 282.0
+[node name="Label" type="RichTextLabel" parent="intro" unique_id=2126303944]
+offset_left = -591.3976
 offset_top = -2594.0
-offset_right = 1693.0
-offset_bottom = -1975.0
-theme_override_colors/font_color = Color(0.73300546, 0.73300546, 0.7330052, 1)
-theme_override_font_sizes/font_size = 72
-text = "Tout
-    allait	
-        bien..."
+offset_right = 592.66064
+offset_bottom = -2275.7617
+theme_override_colors/default_color = Color(0.2592937, 0.2592937, 0.2592937, 1)
+theme_override_font_sizes/normal_font_size = 55
+text = "Écoute mieux
+la prochaine
+fois"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="lvl5" type="Node2D" parent="." unique_id=574120747]
 
@@ -1715,6 +1751,14 @@ texture = ExtResource("44_ppux1")
 
 [node name="descente_en_enfer" parent="lvl5" unique_id=152367028 instance=ExtResource("43_cd7fg")]
 position = Vector2(27758.86, 2799.0413)
+
+[node name="TextureRect" type="TextureRect" parent="lvl5" unique_id=1581605215]
+material = SubResource("ShaderMaterial_7f7j5")
+offset_left = -205.5957
+offset_top = -12842.822
+offset_right = 8068.4824
+offset_bottom = -6774.843
+texture = SubResource("GradientTexture1D_1tqiw")
 
 [node name="DEATHZONE" type="Area2D" parent="." unique_id=265587749]
 

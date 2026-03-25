@@ -21,7 +21,7 @@ func _ready() -> void:
 			sprintsprite.show()
 	if !Global.dash_unlock:
 		if type_bonus == "dash":
-			info_bonus.text = "[color=#000000]You can now dash with right click or RT![/color]"
+			info_bonus.text = "[color=#FFFFFF]You can now dash with right click or RT button![/color]"
 			dashsprite.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

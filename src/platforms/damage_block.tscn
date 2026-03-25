@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bdd03axytgixu"]
+
+[ext_resource type="Texture2D" uid="uid://cdst0mtux68aq" path="res://sprites/rooms/dmg_block.png" id="1_2t7s0"]
+[ext_resource type="Script" uid="uid://dnmqc776jb15e" path="res://src/platforms/damage_block.gd" id="1_wnwu4"]
+[ext_resource type="Texture2D" uid="uid://bqm44b58x2rq0" path="res://sprites/rooms/dmg_block_black.png" id="3_j5vdp"]
+[ext_resource type="AudioStream" uid="uid://df7ch0n035bl5" path="res://sounds/ribhavagrawal-sword-cut-type-1-230552.mp3" id="4_j5vdp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwu4"]
+size = Vector2(144.25244, 159.27872)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4mlh0"]
+random_pitch = 1.2599211
+streams_count = 1
+stream_0/stream = ExtResource("4_j5vdp")
+
+[node name="damage_block" type="Node2D" unique_id=1974418075]
+script = ExtResource("1_wnwu4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=31079717]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_2t7s0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=929823176]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j5vdp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=26063363]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1698994651]
+position = Vector2(2.0593262, 0.6934662)
+shape = SubResource("RectangleShape2D_wnwu4")
+
+[node name="Timer" type="Timer" parent="." unique_id=257263356]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1222543737]
+stream = SubResource("AudioStreamRandomizer_4mlh0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

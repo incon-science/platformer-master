@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="9_anba5"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="10_lory2"]
 [ext_resource type="PackedScene" uid="uid://mtmitx3k0avp" path="res://src/platforms/3_platformblueprint.tscn" id="11_88ojq"]
+[ext_resource type="PackedScene" uid="uid://bdd03axytgixu" path="res://src/platforms/damage_block.tscn" id="11_nvtr1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m2xyl"]
 shader = ExtResource("2_m2xyl")
@@ -490,6 +491,11 @@ offset_top = 3462.0
 offset_right = 4676.0
 offset_bottom = 13545.0
 color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="traps" type="Node2D" parent="." unique_id=1194069234]
+
+[node name="damage_block4" parent="traps" unique_id=2011035111 instance=ExtResource("11_nvtr1")]
+position = Vector2(-496, 11)
 
 [connection signal="body_entered" from="buttons/button" to="." method="_on_button_body_entered1"]
 [connection signal="body_entered" from="buttons/button2" to="." method="_on_button_2_body_entered3"]
